@@ -1,0 +1,509 @@
+.product-card {
+  --card-bg: #fff0f7;
+  --card-soft: #ffdcec;
+  --card-accent: #e9429a;
+  --card-accent-two: #b94fd1;
+
+  position: relative;
+  min-width: 0;
+}
+
+/* ======================
+   COLORS
+====================== */
+
+.product-card--pink {
+  --card-bg: #fff0f7;
+  --card-soft: #ffd7e9;
+  --card-accent: #e9439d;
+  --card-accent-two: #bc4bd0;
+}
+
+.product-card--purple {
+  --card-bg: #f5efff;
+  --card-soft: #e7d9ff;
+  --card-accent: #9951d4;
+  --card-accent-two: #6d65df;
+}
+
+.product-card--blue {
+  --card-bg: #edf7ff;
+  --card-soft: #d5ebff;
+  --card-accent: #438edc;
+  --card-accent-two: #6a69e0;
+}
+
+.product-card--yellow {
+  --card-bg: #fff8e9;
+  --card-soft: #ffedbd;
+  --card-accent: #e59b29;
+  --card-accent-two: #eb5f94;
+}
+
+.product-card--mint {
+  --card-bg: #ecfbf7;
+  --card-soft: #cef3e8;
+  --card-accent: #35aa91;
+  --card-accent-two: #3f9ed0;
+}
+
+.product-card--coral {
+  --card-bg: #fff0ed;
+  --card-soft: #ffd8d2;
+  --card-accent: #eb6a79;
+  --card-accent-two: #de4c9c;
+}
+
+/* ======================
+   CARD
+====================== */
+
+.product-card__button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 12px;
+  border-radius: 32px 24px 35px 26px;
+  color: inherit;
+  background: var(--card-bg);
+  box-shadow:
+    0 18px 45px rgba(70, 47, 77, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  text-align: left;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product-card__button:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 27px 58px rgba(70, 47, 77, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ======================
+   IMAGE AREA
+====================== */
+
+.product-card__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 320px;
+  padding: 20px;
+  border-radius: 26px 19px 29px 21px;
+  background:
+    radial-gradient(
+      circle at 50% 46%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.96) 58%,
+      var(--card-soft) 100%
+    );
+}
+
+/*
+  Fondo orgánico suave.
+*/
+
+.product-card__blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 70%;
+  border-radius:
+    47% 53% 57% 43% /
+    45% 43% 57% 55%;
+  background: var(--card-soft);
+  opacity: 0.42;
+  transform:
+    translate(-50%, -50%)
+    rotate(-8deg);
+}
+
+/*
+  IMPORTANTE:
+  todas las imágenes tienen el mismo
+  espacio visual y nunca usan cover.
+*/
+
+.product-card__media img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 275px;
+  margin: auto;
+  object-fit: contain;
+  object-position: center center;
+  filter:
+    drop-shadow(
+      0 9px 12px
+      rgba(58, 39, 64, 0.08)
+    );
+  transition:
+    transform 0.35s ease;
+}
+
+.product-card__button:hover
+  .product-card__media img {
+  transform: scale(1.035);
+}
+
+/* ======================
+   IMAGE NORMALIZATION
+====================== */
+
+/*
+  TAZAS
+*/
+
+.product-card__media
+  img[src*='tazas-blancas'],
+.product-card__media
+  img[src*='tazas-magicas'],
+.product-card__media
+  img[src*='taza-magica-duo'],
+.product-card__media
+  img[src*='taza-perla'],
+.product-card__media
+  img[src*='tazas-con-fondo-de-color'] {
+  max-width: 285px;
+  max-height: 255px;
+}
+
+/*
+  PLAYERAS / BOLSAS
+*/
+
+.product-card__media
+  img[src*='playeras-adulto'],
+.product-card__media
+  img[src*='bolsa-ecologica'],
+.product-card__media
+  img[src*='bolsa-dulcera'],
+.product-card__media
+  img[src*='sticker-para-ropa'] {
+  max-width: 285px;
+  max-height: 255px;
+}
+
+/*
+  TERMOS / VASOS / TARRO
+*/
+
+.product-card__media
+  img[src*='termos'],
+.product-card__media
+  img[src*='vasos'],
+.product-card__media
+  img[src*='tarro-cervecero'] {
+  max-width: 260px;
+  max-height: 260px;
+}
+
+/*
+  LLAVEROS / PINES / CACHUCHAS
+*/
+
+.product-card__media
+  img[src*='llaveros'],
+.product-card__media
+  img[src*='pines'],
+.product-card__media
+  img[src*='cachuchas'] {
+  max-width: 265px;
+  max-height: 245px;
+}
+
+/*
+  CAJAS
+*/
+
+.product-card__media
+  img[src*='cajas-personalizadas'] {
+  max-width: 280px;
+  max-height: 260px;
+}
+
+/*
+  ROMPECABEZAS
+*/
+
+.product-card__media
+  img[src*='rompecabezas'] {
+  max-width: 275px;
+  max-height: 250px;
+}
+
+/*
+  DECORACIÓN / GLOBOS
+*/
+
+.product-card__media
+  img[src*='letras-para-decoracion'],
+.product-card__media
+  img[src*='centros-de-mesa'],
+.product-card__media
+  img[src*='globo-jumbo'],
+.product-card__media
+  img[src*='globo-burbuja'],
+.product-card__media
+  img[src*='estrellas-de-helio'],
+.product-card__media
+  img[src*='distintivos'] {
+  max-width: 245px;
+  max-height: 265px;
+}
+
+/*
+  SET TAZA + CAJA
+*/
+
+.product-card__media
+  img[src*='set-taza-caja'] {
+  max-width: 275px;
+  max-height: 255px;
+}
+
+/*
+  PERFUMES
+*/
+
+.product-card__media
+  img[src*='perfumes'] {
+  max-width: 245px;
+  max-height: 270px;
+}
+
+/*
+  NIÑOS / BEBÉ
+*/
+
+.product-card__media
+  img[src*='bebe'],
+.product-card__media
+  img[src*='montables'],
+.product-card__media
+  img[src*='jugetes-para-nin-o'] {
+  max-width: 265px;
+  max-height: 260px;
+}
+
+/*
+  ELECTRÓNICA
+*/
+
+.product-card__media
+  img[src*='electronica'] {
+  max-width: 245px;
+  max-height: 265px;
+}
+
+/*
+  FOLDER / GAFETES
+*/
+
+.product-card__media
+  img[src*='folder'],
+.product-card__media
+  img[src*='gafets'] {
+  max-width: 250px;
+  max-height: 255px;
+}
+
+/* ======================
+   PLACEHOLDER
+====================== */
+
+.product-card__placeholder {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--card-accent);
+  font-size: 42px;
+}
+
+/* ======================
+   BADGES
+====================== */
+
+.product-card__badges {
+  position: absolute;
+  z-index: 4;
+  top: 13px;
+  left: 13px;
+  right: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 7px;
+}
+
+.product-card__badge {
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: var(--card-accent);
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: 0 6px 18px rgba(65, 43, 70, 0.08);
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.product-card__badge--sold {
+  margin-left: auto;
+  color: #ffffff;
+  background: #544957;
+}
+
+/* ======================
+   CONTENT
+====================== */
+
+.product-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 13px 12px;
+}
+
+.product-card__copy h3 {
+  margin: 0;
+  color: #413347;
+  font-size: 25px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.product-card__copy p {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 11px 0 0;
+  color: #796c7b;
+  font-size: 11px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* ======================
+   BOTTOM
+====================== */
+
+.product-card__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.product-card__price {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card__price small {
+  margin-bottom: 2px;
+  color: #958797;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.product-card__price strong {
+  color: var(--card-accent);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.product-card__arrow {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  border-radius: 50% 43% 56% 46%;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      var(--card-accent),
+      var(--card-accent-two)
+    );
+  box-shadow: 0 9px 20px rgba(102, 65, 118, 0.15);
+}
+
+.product-card__arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ======================
+   TABLET
+====================== */
+
+@media (max-width: 1100px) {
+  .product-card__media {
+    height: 300px;
+  }
+
+  .product-card__media img {
+    max-width: 270px;
+    max-height: 255px;
+  }
+}
+
+/* ======================
+   MOBILE
+====================== */
+
+@media (max-width: 760px) {
+  .product-card__button {
+    border-radius: 27px 21px 30px 23px;
+  }
+
+  .product-card__media {
+    height: 290px;
+    padding: 16px;
+    border-radius: 23px 17px 26px 19px;
+  }
+
+  .product-card__media img {
+    max-width: 270px;
+    max-height: 250px;
+  }
+
+  .product-card__copy h3 {
+    font-size: 23px;
+  }
+
+  .product-card__content {
+    padding: 18px 11px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card__button,
+  .product-card__media img {
+    transition: none;
+  }
+}

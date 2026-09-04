@@ -120,13 +120,13 @@ function Hero() {
           <div className="hero__stats">
             <div className="hero__stat hero__stat--pink">
               <span className="hero__stat-dot" />
-              <strong>20+</strong>
+              <strong>100+</strong>
               <span>Productos</span>
             </div>
 
             <div className="hero__stat hero__stat--blue">
               <span className="hero__stat-dot" />
-              <strong>1 día</strong>
+              <strong>3 días</strong>
               <span>Tiempo estimado</span>
             </div>
 

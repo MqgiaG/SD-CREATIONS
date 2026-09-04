@@ -2,7 +2,6 @@
 
 :root {
   font-family: 'Fredoka', sans-serif;
-
   color: #3f3346;
   background: #fffafd;
 
@@ -13,7 +12,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* RESET GENERAL */
+/* =========================
+   RESET
+========================= */
 
 *,
 *::before,
@@ -23,6 +24,13 @@
 
 html {
   scroll-behavior: smooth;
+
+  /*
+    Mantiene reservado el espacio del scrollbar.
+    Así la página no cambia de ancho cuando
+    aparecen o desaparecen resultados.
+  */
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -32,6 +40,13 @@ body {
   min-height: 100vh;
 
   overflow-x: hidden;
+
+  /*
+    Evita que el navegador intente reposicionar
+    automáticamente la pantalla cuando React
+    cambia la cantidad de resultados.
+  */
+  overflow-anchor: none;
 
   background:
     radial-gradient(
@@ -64,6 +79,7 @@ select {
 
 button {
   border: 0;
+  cursor: pointer;
 }
 
 a {
@@ -103,21 +119,25 @@ p {
   min-height: 100vh;
 }
 
-/* SELECCIÓN DE TEXTO */
+/* =========================
+   TEXT SELECTION
+========================= */
 
 ::selection {
-  color: #fff;
+  color: #ffffff;
 
   background: #d93aa8;
 }
 
 ::-moz-selection {
-  color: #fff;
+  color: #ffffff;
 
   background: #d93aa8;
 }
 
-/* SCROLLBAR */
+/* =========================
+   SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -128,38 +148,37 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    #ff4b9d,
-    #a438d3,
-    #438fea
-  );
-
   border: 2px solid #fff6fb;
+
   border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ff4b9d,
+      #a438d3,
+      #438fea
+    );
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    180deg,
-    #f73b91,
-    #8f2fc5,
-    #3282de
-  );
+  background:
+    linear-gradient(
+      180deg,
+      #f73b91,
+      #8f2fc5,
+      #3282de
+    );
 }
 
-/* LINKS Y BOTONES */
+/* =========================
+   INTERACTIONS
+========================= */
 
 a,
 button {
   -webkit-tap-highlight-color: transparent;
 }
-
-button {
-  cursor: pointer;
-}
-
-/* ACCESIBILIDAD */
 
 a:focus-visible,
 button:focus-visible,
@@ -167,16 +186,17 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
   outline: 3px solid rgba(66, 143, 234, 0.35);
+
   outline-offset: 3px;
 }
 
-/* SCROLL OFFSET POR HEADER FIJO */
+/* =========================
+   SECTION SCROLL
+========================= */
 
 section[id] {
   scroll-margin-top: 120px;
 }
-
-/* MOBILE */
 
 @media (max-width: 700px) {
   section[id] {
