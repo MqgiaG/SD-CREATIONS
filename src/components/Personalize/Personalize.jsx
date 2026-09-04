@@ -1,23 +1,243 @@
 import { useState } from 'react'
 import './Personalize.css'
 
-const products = [
-  { id: 'taza', name: 'Taza', emoji: '☕' },
-  { id: 'playera', name: 'Playera', emoji: '👕' },
-  { id: 'termo', name: 'Termo', emoji: '🥤' },
-  { id: 'vaso', name: 'Vaso', emoji: '🥛' },
-  { id: 'caja', name: 'Caja', emoji: '🎁' },
-  { id: 'llavero', name: 'Llavero', emoji: '💖' },
+const featuredProducts = [
+  {
+    id: 'taza',
+    catalogId: 'tazas-blancas',
+    name: 'Taza',
+    emoji: '☕',
+    customization: 'Foto + texto',
+    details: ['Foto o imagen', 'Nombre o frase', '11 oz o 15 oz'],
+    placeholder:
+      'Ej. Quiero una taza blanca con el nombre Amara, flores rosas, corazones y un estilo tierno...',
+    generationGuide:
+      'Taza blanca personalizada. Puede llevar fotografía, imagen, nombre o frase. Mantener el diseño aplicado sobre la superficie de la taza.',
+  },
+  {
+    id: 'playera',
+    catalogId: 'playeras-adulto',
+    name: 'Playera',
+    emoji: '👕',
+    customization: 'Foto + texto + diseño',
+    details: ['Color blanco', 'Tallas M, G y XL', 'Diseño al frente'],
+    placeholder:
+      'Ej. Quiero una playera blanca con el nombre Amara en rosa, mariposas y un diseño tierno al frente...',
+    generationGuide:
+      'Playera blanca para adulto. El diseño puede incluir fotografía, texto, logotipo o ilustración y debe mostrarse aplicado principalmente al frente.',
+  },
+  {
+    id: 'caja',
+    catalogId: 'cajas-personalizadas',
+    name: 'Caja',
+    emoji: '🎁',
+    customization: 'Texto',
+    details: [
+      'Caja negra, blanca o rosa',
+      'Letras negras, doradas, plata o rosa',
+      'Solo texto',
+    ],
+    placeholder:
+      'Ej. Quiero una caja rosa con el nombre Amara en letras doradas y una frase corta...',
+    generationGuide:
+      'Caja personalizada. La personalización disponible es únicamente con texto. Caja negra, blanca o rosa; letras negras, doradas, plata o rosa.',
+  },
+  {
+    id: 'llavero',
+    catalogId: 'llaveros',
+    name: 'Llavero',
+    emoji: '💖',
+    customization: 'Fotografía',
+    details: ['Fotografía', 'Modelo sujeto a disponibilidad'],
+    placeholder:
+      'Ej. Quiero un llavero con una foto de pareja y un estilo romántico...',
+    generationGuide:
+      'Llavero personalizado principalmente con fotografía. El modelo físico puede variar según disponibilidad.',
+  },
+  {
+    id: 'cachucha',
+    catalogId: 'cachuchas',
+    name: 'Cachucha',
+    emoji: '🧢',
+    customization: 'Logo + letras',
+    details: ['Logotipo', 'Nombre o letras', 'Diseño frontal'],
+    placeholder:
+      'Ej. Quiero una cachucha con mi logo al frente y el nombre MQGIA debajo...',
+    generationGuide:
+      'Cachucha personalizada con logotipo, nombre o letras. El diseño debe mostrarse aplicado en la parte frontal.',
+  },
+  {
+    id: 'bolsa',
+    catalogId: 'bolsa-ecologica',
+    name: 'Bolsa',
+    emoji: '👜',
+    customization: 'Foto + texto',
+    details: ['Fotografías', 'Frases', 'Uno o ambos lados'],
+    placeholder:
+      'Ej. Quiero una bolsa ecológica con una ilustración de flores y la frase Todo florece...',
+    generationGuide:
+      'Bolsa ecológica personalizada. Puede incluir fotografías, imágenes y frases. Puede imprimirse por un lado o por ambos.',
+  },
 ]
+
+const extraProducts = [
+  {
+    id: 'taza-magica',
+    catalogId: 'tazas-magicas',
+    name: 'Taza mágica',
+    emoji: '🌙',
+    customization: 'Foto + texto',
+    details: ['Fotografía', 'Nombre o frase', 'Efecto con bebida caliente'],
+    placeholder:
+      'Ej. Quiero una taza mágica con una foto, el nombre Melanie y estrellas moradas...',
+    generationGuide:
+      'Taza mágica que revela el diseño con bebida caliente. Puede llevar fotografía y frase.',
+  },
+  {
+    id: 'rompecabezas',
+    catalogId: 'rompecabezas',
+    name: 'Rompecabezas',
+    emoji: '🧩',
+    customization: 'Fotografía',
+    details: ['Fotografía', 'Tamaño carta', 'Cartón o DTF'],
+    placeholder:
+      'Ej. Quiero un rompecabezas con nuestra foto familiar y una frase pequeña abajo...',
+    generationGuide:
+      'Rompecabezas personalizado tamaño carta. La personalización principal es una fotografía.',
+  },
+  {
+    id: 'pines',
+    catalogId: 'pines',
+    name: 'Pin',
+    emoji: '📍',
+    customization: 'Imagen o diseño',
+    details: ['Imagen o diseño', '3 cm o 6 cm'],
+    placeholder:
+      'Ej. Quiero un pin con mi logo rosa y morado sobre fondo blanco...',
+    generationGuide:
+      'Pin personalizado con imagen o diseño. Presentaciones disponibles de 3 cm y 6 cm.',
+  },
+  {
+    id: 'folder',
+    catalogId: 'folder',
+    name: 'Folder',
+    emoji: '📁',
+    customization: 'Foto + texto',
+    details: ['Fotografías', 'Nombre o texto'],
+    placeholder:
+      'Ej. Quiero un folder con una foto, mi nombre y detalles en rosa pastel...',
+    generationGuide:
+      'Folder personalizado con fotografías, imágenes y texto.',
+  },
+  {
+    id: 'gafete',
+    catalogId: 'gafets',
+    name: 'Gafete',
+    emoji: '🪪',
+    customization: 'Foto + texto',
+    details: ['Fotografía', 'Nombre', 'Logotipo o texto'],
+    placeholder:
+      'Ej. Quiero un gafete con mi foto, nombre, puesto y el logo de mi negocio...',
+    generationGuide:
+      'Gafete personalizado con fotografía, nombre, logotipo o texto.',
+  },
+  {
+    id: 'bolsa-dulcera',
+    catalogId: 'bolsa-dulcera',
+    name: 'Bolsa dulcera',
+    emoji: '🍬',
+    customization: 'Foto + texto',
+    details: ['Fotografía o personaje', 'Nombre o frase', 'Tema del evento'],
+    placeholder:
+      'Ej. Quiero una bolsa dulcera de cumpleaños con Stitch, nombre Amara y colores rosa y morado...',
+    generationGuide:
+      'Bolsa dulcera personalizada con fotografías, personajes, nombres o frases y temática de evento.',
+  },
+  {
+    id: 'vaso',
+    catalogId: 'vasos',
+    name: 'Vaso',
+    emoji: '🥤',
+    customization: 'Texto',
+    details: ['Nombre o frase', '500 ml o 750 ml', 'Solo texto'],
+    placeholder:
+      'Ej. Quiero un vaso de 750 ml con el nombre Amara en letras rosas...',
+    generationGuide:
+      'Vaso personalizado únicamente con letras o texto. Presentaciones de 500 ml y 750 ml.',
+  },
+  {
+    id: 'taza-color',
+    catalogId: 'tazas-fondo-color',
+    name: 'Taza de color',
+    emoji: '🌈',
+    customization: 'Foto + texto',
+    details: ['Fotografía', 'Texto', 'Fondo de color'],
+    placeholder:
+      'Ej. Quiero una taza con fondo azul, una foto al centro y una frase debajo...',
+    generationGuide:
+      'Taza con fondo de color personalizada con fotografía y texto.',
+  },
+  {
+    id: 'taza-perla',
+    catalogId: 'taza-perla',
+    name: 'Taza perla',
+    emoji: '✨',
+    customization: 'Foto + texto',
+    details: ['Fotografía', 'Nombre o frase', 'Acabado especial'],
+    placeholder:
+      'Ej. Quiero una taza perla con una foto y el nombre Vianey en letras elegantes...',
+    generationGuide:
+      'Taza con acabado perla personalizada con fotografías, nombres o diseños.',
+  },
+  {
+    id: 'sticker-ropa',
+    catalogId: 'sticker-ropa',
+    name: 'Sticker ropa',
+    emoji: '🎨',
+    customization: 'Fotografía',
+    details: ['Fotografía o imagen', 'Ropa oscura o mezclilla'],
+    placeholder:
+      'Ej. Quiero un sticker para mezclilla con una fotografía y un borde rosa...',
+    generationGuide:
+      'Sticker para ropa oscura o mezclilla personalizado con fotografía o imagen.',
+  },
+  {
+    id: 'estrella-helio',
+    catalogId: 'estrellas-de-helio',
+    name: 'Estrella de helio',
+    emoji: '⭐',
+    customization: 'Texto',
+    details: ['Nombre o frase', 'Solo texto'],
+    placeholder:
+      'Ej. Quiero una estrella de helio con Feliz cumpleaños Amara en letras rosas...',
+    generationGuide:
+      'Estrella de helio personalizada únicamente con texto, nombre o frase.',
+  },
+]
+
+const allProducts = [...featuredProducts, ...extraProducts]
 
 function Personalize() {
   const [selectedProduct, setSelectedProduct] = useState('taza')
   const [idea, setIdea] = useState('')
   const [generated, setGenerated] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [showMore, setShowMore] = useState(false)
 
   const selectedProductData =
-    products.find((product) => product.id === selectedProduct) || products[0]
+    allProducts.find((product) => product.id === selectedProduct) ||
+    featuredProducts[0]
+
+  const handleProductChange = (product) => {
+    setSelectedProduct(product.id)
+    setIdea('')
+    setGenerated(false)
+    setLoading(false)
+
+    if (extraProducts.some((item) => item.id === product.id)) {
+      setShowMore(true)
+    }
+  }
 
   const handleGenerate = () => {
     if (!idea.trim() || loading) return
@@ -35,6 +255,10 @@ function Personalize() {
     `¡Hola! 💕 Quiero cotizar un diseño personalizado de SD Creations.
 
 Producto: ${selectedProductData.name}
+Personalización disponible: ${selectedProductData.customization}
+
+Detalles del producto:
+${selectedProductData.details.map((detail) => `• ${detail}`).join('\n')}
 
 Mi idea:
 ${idea}
@@ -75,10 +299,6 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
         </div>
 
         <div className="personalize__workspace">
-          {/* ===============================
-              LADO IZQUIERDO
-          =============================== */}
-
           <div className="personalize__creator">
             <div className="personalize__creator-decoration personalize__creator-decoration--pink" />
             <div className="personalize__creator-decoration personalize__creator-decoration--yellow" />
@@ -102,8 +322,6 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
               </div>
             </div>
 
-            {/* PASO 1 */}
-
             <div className="personalize__step">
               <div className="personalize__step-header">
                 <span className="personalize__step-number personalize__step-number--pink">
@@ -117,7 +335,7 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
               </div>
 
               <div className="personalize__products">
-                {products.map((product) => (
+                {featuredProducts.map((product) => (
                   <button
                     key={product.id}
                     type="button"
@@ -126,22 +344,92 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                         ? 'personalize__product--active'
                         : ''
                     }`}
-                    onClick={() => {
-                      setSelectedProduct(product.id)
-                      setGenerated(false)
-                    }}
+                    onClick={() => handleProductChange(product)}
                   >
                     <span className="personalize__product-icon">
                       {product.emoji}
                     </span>
 
                     <strong>{product.name}</strong>
+                    <small>{product.customization}</small>
 
                     {selectedProduct === product.id && (
                       <span className="personalize__product-check">✓</span>
                     )}
                   </button>
                 ))}
+              </div>
+
+              <button
+                type="button"
+                className={`personalize__more ${
+                  showMore ? 'personalize__more--open' : ''
+                }`}
+                onClick={() => setShowMore((current) => !current)}
+              >
+                <span className="personalize__more-icon">✦</span>
+
+                <span className="personalize__more-copy">
+                  <small>
+                    {showMore ? 'Ocultar opciones' : 'Tenemos más para crear'}
+                  </small>
+
+                  <strong>
+                    {showMore
+                      ? 'Ver menos productos'
+                      : 'Ver más productos personalizables'}
+                  </strong>
+                </span>
+
+                <span className="personalize__more-symbol">
+                  {showMore ? '−' : '+'}
+                </span>
+              </button>
+
+              {showMore && (
+                <div className="personalize__extras">
+                  {extraProducts.map((product) => (
+                    <button
+                      key={product.id}
+                      type="button"
+                      className={`personalize__extra ${
+                        selectedProduct === product.id
+                          ? 'personalize__extra--active'
+                          : ''
+                      }`}
+                      onClick={() => handleProductChange(product)}
+                    >
+                      <span>{product.emoji}</span>
+
+                      <div>
+                        <strong>{product.name}</strong>
+                        <small>{product.customization}</small>
+                      </div>
+
+                      {selectedProduct === product.id && <b>✓</b>}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              <div className="personalize__rules">
+                <div className="personalize__rules-top">
+                  <div>
+                    <span>✦</span>
+                    <small>Para tu {selectedProductData.name.toLowerCase()}</small>
+                  </div>
+
+                  <strong>{selectedProductData.customization}</strong>
+                </div>
+
+                <div className="personalize__rules-list">
+                  {selectedProductData.details.map((detail) => (
+                    <span key={detail}>
+                      <i>✓</i>
+                      {detail}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -150,8 +438,6 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
               <i>✦</i>
               <span />
             </div>
-
-            {/* PASO 2 */}
 
             <div className="personalize__step">
               <div className="personalize__step-header">
@@ -181,7 +467,7 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                     setIdea(event.target.value)
                     setGenerated(false)
                   }}
-                  placeholder="Ej. Quiero una taza blanca con el nombre Amara, flores rosas, corazones y un estilo tierno..."
+                  placeholder={selectedProductData.placeholder}
                 />
 
                 <div className="personalize__prompt-footer">
@@ -212,7 +498,7 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                   <small>
                     {loading
                       ? 'La magia está sucediendo...'
-                      : 'Haz realidad tu idea'}
+                      : `Propuesta para ${selectedProductData.name.toLowerCase()}`}
                   </small>
 
                   <strong>
@@ -221,15 +507,11 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                 </span>
 
                 <span className="personalize__generate-arrow">
-                  {loading ? '•••' : '→'}
+                  {loading ? '•••' : '✦'}
                 </span>
               </button>
             </div>
           </div>
-
-          {/* ===============================
-              LADO DERECHO
-          =============================== */}
 
           <div className="personalize__result">
             <div className="personalize__result-decoration personalize__result-decoration--pink" />
@@ -286,7 +568,9 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                       ★
                     </span>
 
-                    <span className="personalize__magic-main">✦</span>
+                    <span className="personalize__magic-main">
+                      {selectedProductData.emoji}
+                    </span>
                   </div>
 
                   <span className="personalize__empty-label">
@@ -359,7 +643,7 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                       <div>
                         <small>SD CREATIONS</small>
                         <strong>{selectedProductData.name}</strong>
-                        <span>Tu diseño personalizado ✦</span>
+                        <span>{selectedProductData.customization} ✦</span>
                       </div>
                     </div>
                   </div>
@@ -401,7 +685,7 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                     <strong>Quiero este diseño</strong>
                   </span>
 
-                  <span className="personalize__whatsapp-arrow">↗</span>
+                  <span className="personalize__whatsapp-arrow">✦</span>
                 </a>
               </div>
             )}
@@ -419,10 +703,12 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
 
         <div className="personalize__footer-message">
           <span>✦</span>
+
           <p>
             Cada diseño puede ser diferente.
             <strong> Ahí está la magia.</strong>
           </p>
+
           <span>♥</span>
         </div>
       </div>

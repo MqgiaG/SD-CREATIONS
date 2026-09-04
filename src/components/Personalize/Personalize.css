@@ -2589,3 +2589,550 @@
     animation: none;
   }
 }
+
+/* =====================================================
+   REAL CATALOG ENHANCEMENTS
+   Productos extra + reglas reales de personalización
+===================================================== */
+
+.personalize__product small {
+  color: #a293a7;
+  font-size: 8px;
+  font-weight: 750;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.personalize__product--active small {
+  color: #8d5a99;
+}
+
+/* =============================
+   MORE PRODUCTS BUTTON
+============================= */
+
+.personalize__more {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 11px 14px;
+  color: #78318d;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.83),
+      rgba(248, 235, 255, 0.88)
+    );
+  border:
+    2px solid
+    rgba(157, 70, 193, 0.11);
+  border-radius:
+    20px 28px 18px 26px;
+  box-shadow:
+    0 6px 0 rgba(111, 75, 128, 0.035),
+    0 15px 28px rgba(94, 53, 108, 0.06);
+  text-align: left;
+  transition:
+    transform 0.3s cubic-bezier(.34, 1.56, .64, 1),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.personalize__more:hover {
+  transform:
+    translateY(-3px)
+    rotate(-0.3deg);
+  background:
+    linear-gradient(
+      145deg,
+      #fff,
+      #f7e9ff
+    );
+  box-shadow:
+    0 8px 0 rgba(111, 75, 128, 0.035),
+    0 19px 33px rgba(94, 53, 108, 0.09);
+}
+
+.personalize__more--open {
+  background:
+    linear-gradient(
+      145deg,
+      #ffeaf6,
+      #eee8ff
+    );
+}
+
+.personalize__more-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background:
+    linear-gradient(
+      145deg,
+      #ff3d91,
+      #a53ed5,
+      #438fe8
+    );
+  border:
+    3px solid
+    rgba(255, 255, 255, 0.55);
+  border-radius:
+    13px 18px 12px 17px;
+  box-shadow:
+    0 7px 15px rgba(119, 57, 165, 0.14);
+  font-size: 14px;
+  transform: rotate(-5deg);
+}
+
+.personalize__more-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.personalize__more-copy small {
+  margin-bottom: 2px;
+  color: #a292a6;
+  font-size: 7px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.personalize__more-copy strong {
+  color: #6f2d82;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.personalize__more-symbol {
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+  display: grid;
+  place-items: center;
+  margin-left: auto;
+  color: #9d3ec1;
+  background: rgba(255, 255, 255, 0.76);
+  border-radius:
+    50% 43% 57% 45%;
+  font-size: 18px;
+  font-weight: 800;
+  transition:
+    transform 0.3s ease;
+}
+
+.personalize__more--open
+.personalize__more-symbol {
+  transform: rotate(8deg);
+}
+
+/* =============================
+   EXTRA PRODUCTS
+============================= */
+
+.personalize__extras {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 11px;
+  padding: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.48),
+      rgba(249, 239, 255, 0.55)
+    );
+  border:
+    2px dashed
+    rgba(161, 77, 190, 0.12);
+  border-radius:
+    25px 34px 23px 31px;
+  animation:
+    personalizeExtrasEnter
+    0.35s
+    cubic-bezier(.34, 1.56, .64, 1)
+    both;
+}
+
+.personalize__extra {
+  position: relative;
+  display: grid;
+  grid-template-columns:
+    auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  min-height: 61px;
+  padding: 8px 10px;
+  color: #756778;
+  background:
+    rgba(255, 255, 255, 0.75);
+  border:
+    2px solid
+    rgba(145, 100, 159, 0.07);
+  border-radius:
+    17px 23px 16px 21px;
+  box-shadow:
+    0 5px 12px rgba(83, 53, 94, 0.035);
+  text-align: left;
+  transition:
+    transform 0.25s cubic-bezier(.34, 1.56, .64, 1),
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.personalize__extra:nth-child(even) {
+  border-radius:
+    23px 16px 22px 17px;
+}
+
+.personalize__extra:hover {
+  transform:
+    translateY(-3px)
+    rotate(-0.4deg);
+  background: #fff;
+}
+
+.personalize__extra > span {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background:
+    linear-gradient(
+      145deg,
+      #fff,
+      #fff7fb
+    );
+  border:
+    2px solid #fff;
+  border-radius:
+    12px 17px 11px 16px;
+  box-shadow:
+    0 6px 13px rgba(84, 55, 95, 0.06);
+  font-size: 20px;
+}
+
+.personalize__extra > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.personalize__extra strong {
+  overflow: hidden;
+  color: #5d4963;
+  font-size: 9px;
+  font-weight: 850;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.personalize__extra small {
+  margin-top: 2px;
+  overflow: hidden;
+  color: #a295a5;
+  font-size: 7px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.personalize__extra > b {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background:
+    linear-gradient(
+      145deg,
+      #ff4095,
+      #a03fd5
+    );
+  border:
+    2px solid #fff;
+  border-radius: 50%;
+  font-size: 7px;
+}
+
+.personalize__extra--active {
+  background:
+    linear-gradient(
+      145deg,
+      #ffe8f5,
+      #eee7ff
+    );
+  border-color:
+    rgba(240, 63, 151, 0.22);
+  box-shadow:
+    0 7px 18px rgba(202, 62, 151, 0.1);
+}
+
+/* =============================
+   PRODUCT RULES
+============================= */
+
+.personalize__rules {
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+  margin-top: 14px;
+  padding:
+    13px 14px 14px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 243, 249, 0.93),
+      rgba(242, 239, 255, 0.9)
+    );
+  border:
+    2px solid
+    rgba(211, 69, 157, 0.09);
+  border-radius:
+    22px 29px 20px 27px;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.75);
+  animation:
+    personalizeRulesEnter
+    0.3s
+    ease
+    both;
+}
+
+.personalize__rules::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -35px;
+  width: 100px;
+  height: 100px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 79, 160, 0.13),
+      transparent 70%
+    );
+  pointer-events: none;
+}
+
+.personalize__rules-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.personalize__rules-top > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.personalize__rules-top > div span {
+  color: #f5b719;
+  font-size: 12px;
+}
+
+.personalize__rules-top small {
+  color: #846d89;
+  font-size: 8px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.55px;
+}
+
+.personalize__rules-top > strong {
+  flex-shrink: 0;
+  padding:
+    5px 8px;
+  color: #843697;
+  background:
+    rgba(255, 255, 255, 0.7);
+  border:
+    1px solid
+    rgba(146, 61, 176, 0.08);
+  border-radius: 999px;
+  font-size: 7px;
+  font-weight: 850;
+}
+
+.personalize__rules-list {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.personalize__rules-list > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding:
+    6px 8px;
+  color: #766378;
+  background:
+    rgba(255, 255, 255, 0.72);
+  border:
+    1px solid
+    rgba(151, 103, 165, 0.07);
+  border-radius: 999px;
+  font-size: 7px;
+  font-weight: 750;
+}
+
+.personalize__rules-list i {
+  width: 14px;
+  height: 14px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background:
+    linear-gradient(
+      145deg,
+      #ff4696,
+      #a443d1
+    );
+  border-radius: 50%;
+  font-size: 6px;
+  font-style: normal;
+}
+
+.personalize__empty
+.personalize__magic-main {
+  font-size: 48px;
+  filter:
+    drop-shadow(
+      0 10px 12px
+      rgba(75, 49, 89, 0.1)
+    );
+}
+
+.personalize__generate-arrow,
+.personalize__whatsapp-arrow {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  border-radius:
+    50% 43% 57% 45%;
+}
+
+.personalize__generate-arrow {
+  background:
+    rgba(255, 255, 255, 0.14);
+  font-size: 12px;
+}
+
+.personalize__whatsapp-arrow {
+  background:
+    rgba(255, 255, 255, 0.14);
+  font-size: 11px;
+}
+
+/* =====================================================
+   EXTRA ANIMATIONS
+===================================================== */
+
+@keyframes personalizeExtrasEnter {
+  from {
+    opacity: 0;
+    transform:
+      translateY(-8px)
+      scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes personalizeRulesEnter {
+  from {
+    opacity: 0;
+    transform:
+      translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0);
+  }
+}
+
+/* =====================================================
+   EXTRA RESPONSIVE
+===================================================== */
+
+@media (max-width: 650px) {
+  .personalize__product {
+    min-height: 112px;
+  }
+
+  .personalize__product small {
+    font-size: 7px;
+  }
+
+  .personalize__more {
+    padding:
+      10px 11px;
+  }
+
+  .personalize__more-copy strong {
+    font-size: 10px;
+  }
+
+  .personalize__extras {
+    grid-template-columns: 1fr;
+  }
+
+  .personalize__extra strong {
+    font-size: 10px;
+  }
+
+  .personalize__extra small {
+    font-size: 8px;
+  }
+
+  .personalize__rules-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .personalize__rules-top > strong {
+    align-self: flex-start;
+  }
+
+  .personalize__rules-list {
+    gap: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .personalize__extras,
+  .personalize__rules {
+    animation: none;
+  }
+}
