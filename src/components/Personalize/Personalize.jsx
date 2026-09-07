@@ -316,70 +316,111 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
 
   return (
     <section className="personalize" id="personalizados">
-      <div className="personalize__background">
-        <div className="personalize__blob personalize__blob--pink" />
-        <div className="personalize__blob personalize__blob--purple" />
-        <div className="personalize__blob personalize__blob--blue" />
-        <div className="personalize__blob personalize__blob--yellow" />
-      </div>
-
-      <span className="personalize__floating personalize__floating--one">✦</span>
-      <span className="personalize__floating personalize__floating--two">♥</span>
-      <span className="personalize__floating personalize__floating--three">★</span>
-      <span className="personalize__floating personalize__floating--four">✦</span>
-
-      <div className="personalize__container">
-        <div className="personalize__heading">
-          <div className="personalize__eyebrow">
-            <span>✦</span>
-            <p>Hazlo completamente tuyo</p>
-          </div>
-
-          <h2 className="personalize__title">
-            Tú lo imaginas.
-            <span> Nosotros lo creamos.</span>
-          </h2>
-
-          <p className="personalize__description">
-            Elige tu producto, cuéntanos cómo te gustaría que se viera y crea
-            una propuesta única antes de hacer tu pedido.
-          </p>
+      <div className="personalize__decor personalize__decor--pink" />
+      <div className="personalize__decor personalize__decor--blue" />
+      <div className="personalize__scene" aria-hidden="true">
+        <div className="personalize__kawaii personalize__kawaii--balloons">
+          <span className="personalize__balloon personalize__balloon--pink" />
+          <span className="personalize__balloon personalize__balloon--purple" />
+          <span className="personalize__balloon personalize__balloon--blue" />
+          <span className="personalize__balloon-string personalize__balloon-string--one" />
+          <span className="personalize__balloon-string personalize__balloon-string--two" />
+          <span className="personalize__balloon-string personalize__balloon-string--three" />
         </div>
 
+        <div className="personalize__kawaii personalize__kawaii--gift">
+          <span className="personalize__gift-lid" />
+          <span className="personalize__gift-box" />
+          <span className="personalize__gift-ribbon personalize__gift-ribbon--vertical" />
+          <span className="personalize__gift-ribbon personalize__gift-ribbon--horizontal" />
+          <span className="personalize__gift-bow personalize__gift-bow--left" />
+          <span className="personalize__gift-bow personalize__gift-bow--right" />
+          <span className="personalize__gift-knot" />
+        </div>
+
+        <div className="personalize__kawaii personalize__kawaii--cloud">
+          <span className="personalize__cloud-puff personalize__cloud-puff--one" />
+          <span className="personalize__cloud-puff personalize__cloud-puff--two" />
+          <span className="personalize__cloud-puff personalize__cloud-puff--three" />
+          <span className="personalize__cloud-face">
+            <i />
+            <i />
+            <b />
+          </span>
+          <span className="personalize__cloud-blush personalize__cloud-blush--left" />
+          <span className="personalize__cloud-blush personalize__cloud-blush--right" />
+        </div>
+
+        <div className="personalize__kawaii personalize__kawaii--heart">
+          <span />
+        </div>
+
+        <div className="personalize__kawaii personalize__kawaii--star">
+          <span />
+        </div>
+
+        <div className="personalize__magic-trail personalize__magic-trail--one" />
+        <div className="personalize__magic-trail personalize__magic-trail--two" />
+
+        <span className="personalize__confetti personalize__confetti--one">♥</span>
+        <span className="personalize__confetti personalize__confetti--two">✦</span>
+        <span className="personalize__confetti personalize__confetti--three">●</span>
+        <span className="personalize__confetti personalize__confetti--four">♥</span>
+        <span className="personalize__confetti personalize__confetti--five">✦</span>
+        <span className="personalize__confetti personalize__confetti--six">●</span>
+
+        <span className="personalize__cloud personalize__cloud--one" />
+        <span className="personalize__cloud personalize__cloud--two" />
+        <span className="personalize__cloud personalize__cloud--three" />
+
+        <span className="personalize__rainbow personalize__rainbow--one" />
+        <span className="personalize__rainbow personalize__rainbow--two" />
+      </div>
+
+      <span className="personalize__doodle personalize__doodle--one">✦</span>
+      <span className="personalize__doodle personalize__doodle--two">♥</span>
+      <span className="personalize__doodle personalize__doodle--three">✦</span>
+
+      <div className="personalize__container">
+        <header className="personalize__hero">
+          <div>
+            <span className="personalize__eyebrow">
+              <i>✦</i>
+              Tu idea, a tu manera
+            </span>
+
+            <h2>
+              Crea algo <span>completamente tuyo.</span>
+            </h2>
+
+            <p>
+              Elige un producto, cuéntanos tu idea y mira una propuesta antes
+              de hacer tu pedido.
+            </p>
+          </div>
+
+          <div className="personalize__hero-note">
+            <span>♥</span>
+            <strong>Ideas que hacen sonreír</strong>
+          </div>
+        </header>
+
         <div className="personalize__workspace">
-          <div className="personalize__creator">
-            <div className="personalize__creator-decoration personalize__creator-decoration--pink" />
-            <div className="personalize__creator-decoration personalize__creator-decoration--yellow" />
-
-            <span className="personalize__sticker personalize__sticker--heart">
-              ♥
-            </span>
-
-            <span className="personalize__sticker personalize__sticker--star">
-              ✦
-            </span>
-
-            <div className="personalize__creator-header">
-              <div className="personalize__creator-icon">
-                <span>✦</span>
-              </div>
-
-              <div>
-                <small>Tu espacio creativo</small>
-                <h3>Crea algo completamente tuyo</h3>
-              </div>
-            </div>
-
-            <div className="personalize__step">
-              <div className="personalize__step-header">
+          <div className="personalize__builder">
+            <section className="personalize__block">
+              <div className="personalize__block-header">
                 <span className="personalize__step-number personalize__step-number--pink">
-                  01
+                  1
                 </span>
 
                 <div>
-                  <small>Empieza por aquí</small>
-                  <h4>¿Qué quieres personalizar?</h4>
+                  <h3>Elige tu producto</h3>
+                  <p>Selecciona el artículo que quieres personalizar.</p>
                 </div>
+
+                <span className="personalize__current">
+                  {selectedProductData.customization}
+                </span>
               </div>
 
               <div className="personalize__products">
@@ -399,7 +440,6 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                     </span>
 
                     <strong>{product.name}</strong>
-                    <small>{product.customization}</small>
 
                     {selectedProduct === product.id && (
                       <span className="personalize__product-check">✓</span>
@@ -415,23 +455,17 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                 }`}
                 onClick={() => setShowMore((current) => !current)}
               >
-                <span className="personalize__more-icon">✦</span>
-
-                <span className="personalize__more-copy">
-                  <small>
-                    {showMore ? 'Ocultar opciones' : 'Tenemos más para crear'}
-                  </small>
-
-                  <strong>
-                    {showMore
-                      ? 'Ver menos productos'
-                      : 'Ver más productos personalizables'}
-                  </strong>
-                </span>
-
-                <span className="personalize__more-symbol">
+                <span className="personalize__more-plus">
                   {showMore ? '−' : '+'}
                 </span>
+
+                <span>
+                  {showMore
+                    ? 'Ocultar productos'
+                    : 'Ver más productos personalizables'}
+                </span>
+
+                <b>{showMore ? '↑' : '↓'}</b>
               </button>
 
               {showMore && (
@@ -461,53 +495,28 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
               )}
 
               <div className="personalize__rules">
-                <div className="personalize__rules-top">
-                  <div>
-                    <span>✦</span>
-                    <small>Para tu {selectedProductData.name.toLowerCase()}</small>
-                  </div>
-
-                  <strong>{selectedProductData.customization}</strong>
-                </div>
-
-                <div className="personalize__rules-list">
-                  {selectedProductData.details.map((detail) => (
-                    <span key={detail}>
-                      <i>✓</i>
-                      {detail}
-                    </span>
-                  ))}
-                </div>
+                {selectedProductData.details.map((detail) => (
+                  <span key={detail}>
+                    <i>✓</i>
+                    {detail}
+                  </span>
+                ))}
               </div>
-            </div>
+            </section>
 
-            <div className="personalize__divider">
-              <span />
-              <i>✦</i>
-              <span />
-            </div>
-
-            <div className="personalize__step">
-              <div className="personalize__step-header">
+            <section className="personalize__block personalize__block--idea">
+              <div className="personalize__block-header">
                 <span className="personalize__step-number personalize__step-number--purple">
-                  02
+                  2
                 </span>
 
                 <div>
-                  <small>Ahora viene la magia</small>
-                  <h4>Describe lo que imaginas</h4>
+                  <h3>Describe tu idea</h3>
+                  <p>Cuéntanos qué diseño tienes en mente.</p>
                 </div>
               </div>
 
               <div className="personalize__prompt">
-                <span className="personalize__prompt-decoration personalize__prompt-decoration--star">
-                  ✦
-                </span>
-
-                <span className="personalize__prompt-decoration personalize__prompt-decoration--heart">
-                  ♥
-                </span>
-
                 <textarea
                   value={idea}
                   maxLength="350"
@@ -524,11 +533,17 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                   <span>{idea.length}/350</span>
 
                   <p>
-                    <span>✦</span>
-                    Entre más detalles nos cuentes, mejor.
+                    <i>✦</i>
+                    Entre más detalles, mejor.
                   </p>
                 </div>
               </div>
+
+              {error && (
+                <p className="personalize__error" role="alert">
+                  {error}
+                </p>
+              )}
 
               <button
                 type="button"
@@ -538,174 +553,101 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                 onClick={handleGenerate}
                 disabled={!idea.trim() || loading}
               >
-                <span className="personalize__generate-shine" />
-
                 <span className="personalize__generate-icon">
                   {loading ? '✦' : '✨'}
                 </span>
 
-                <span className="personalize__generate-copy">
+                <span>
                   <small>
                     {loading
                       ? 'La magia está sucediendo...'
                       : `Propuesta para ${selectedProductData.name.toLowerCase()}`}
                   </small>
-
                   <strong>
                     {loading ? 'Creando tu diseño' : 'Generar mi diseño'}
                   </strong>
                 </span>
 
-                <span className="personalize__generate-arrow">
-                  {loading ? '•••' : '✦'}
-                </span>
+                <b>{loading ? '•••' : '→'}</b>
               </button>
-
-              {error && (
-                <p className="personalize__error" role="alert">
-                  {error}
-                </p>
-              )}
-            </div>
+            </section>
           </div>
 
-          <div className="personalize__result">
-            <div className="personalize__result-decoration personalize__result-decoration--pink" />
-            <div className="personalize__result-decoration personalize__result-decoration--blue" />
-
+          <aside className="personalize__result">
             <div className="personalize__result-header">
-              <div>
-                <small>Tu creación</small>
-                <h3>Así podría quedar</h3>
+              <div className="personalize__result-title">
+                <span className="personalize__result-icon">✦</span>
+
+                <div>
+                  <small>Tu creación</small>
+                  <h3>Así podría quedar</h3>
+                </div>
               </div>
 
-              <div className="personalize__creative-label">
-                <span>✦</span>
-                Diseño creativo
-              </div>
+              <span className="personalize__creative-label">
+                ✦ Diseño personalizado
+              </span>
             </div>
 
-            <div className="personalize__scene">
-              <div className="personalize__rainbow">
-                <span />
-                <span />
-                <span />
+            <div className="personalize__preview">
+              <div className="personalize__preview-decor" aria-hidden="true">
+                <span className="personalize__preview-cloud personalize__preview-cloud--one" />
+                <span className="personalize__preview-cloud personalize__preview-cloud--two" />
+                <span className="personalize__preview-heart">♥</span>
+                <span className="personalize__preview-star">✦</span>
+                <span className="personalize__preview-dot personalize__preview-dot--one" />
+                <span className="personalize__preview-dot personalize__preview-dot--two" />
               </div>
-
-              <div className="personalize__cloud personalize__cloud--one" />
-              <div className="personalize__cloud personalize__cloud--two" />
-
-              <div className="personalize__sun">
-                <span />
-              </div>
-
-              <span className="personalize__scene-star personalize__scene-star--one">
-                ✦
-              </span>
-
-              <span className="personalize__scene-star personalize__scene-star--two">
-                ★
-              </span>
-
-              <span className="personalize__scene-heart">♥</span>
-
-              <div className="personalize__scene-floor" />
 
               {!generated && !loading && (
                 <div className="personalize__empty">
-                  <div className="personalize__magic">
-                    <span className="personalize__magic-aura" />
-
-                    <span className="personalize__magic-spark personalize__magic-spark--one">
-                      ✦
-                    </span>
-
-                    <span className="personalize__magic-spark personalize__magic-spark--two">
-                      ★
-                    </span>
-
-                    <span className="personalize__magic-main">
-                      {selectedProductData.emoji}
-                    </span>
-                  </div>
-
-                  <span className="personalize__empty-label">
-                    Todo comienza con una idea
+                  <span className="personalize__empty-emoji">
+                    {selectedProductData.emoji}
                   </span>
-
-                  <h4>Tu diseño aparecerá aquí</h4>
-
+                  <strong>Tu diseño aparecerá aquí</strong>
                   <p>
-                    Cuéntanos cómo lo imaginas y crearemos una propuesta para tu{' '}
-                    <strong>{selectedProductData.name.toLowerCase()}</strong>.
-                  </p>
-
-                  <div className="personalize__color-dots">
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              )}
-
-              {loading && (
-                <div className="personalize__loading">
-                  <div className="personalize__loading-world">
-                    <span className="personalize__loading-center">✦</span>
-
-                    <span className="personalize__loading-item personalize__loading-item--one">
-                      ♥
-                    </span>
-
-                    <span className="personalize__loading-item personalize__loading-item--two">
-                      ★
-                    </span>
-
-                    <span className="personalize__loading-item personalize__loading-item--three">
-                      ✦
-                    </span>
-                  </div>
-
-                  <h4>Creando algo especial...</h4>
-
-                  <p>
-                    Estamos preparando una propuesta para tu{' '}
+                    Describe tu idea y crearemos una propuesta para tu{' '}
                     {selectedProductData.name.toLowerCase()}.
                   </p>
                 </div>
               )}
 
-              {generated && !loading && (
-                <div className="personalize__generated">
-                  <span className="personalize__generated-pop personalize__generated-pop--one">
-                    ✦
-                  </span>
-
-                  <span className="personalize__generated-pop personalize__generated-pop--two">
-                    ♥
-                  </span>
-
-                  <div className="personalize__generated-card">
-                    <span className="personalize__tape personalize__tape--one" />
-                    <span className="personalize__tape personalize__tape--two" />
-
-                    {generatedImage && (
-                      <img
-                        src={generatedImage}
-                        alt={`Propuesta de ${selectedProductData.name}`}
-                        className="personalize__generated-image"
-                      />
-                    )}
+              {loading && (
+                <div className="personalize__loading">
+                  <div className="personalize__loading-orbit">
+                    <span>✦</span>
                   </div>
 
-                  <div className="personalize__generated-description">
-                    <span>Tu idea</span>
-                    <p>{idea}</p>
-                  </div>
+                  <strong>Creando algo especial...</strong>
+                  <p>Estamos preparando tu propuesta.</p>
                 </div>
               )}
+
+              {generated && !loading && generatedImage && (
+                <div className="personalize__generated">
+                  <span className="personalize__tape personalize__tape--one" />
+                  <span className="personalize__tape personalize__tape--two" />
+
+                  <img
+                    src={generatedImage}
+                    alt={`Propuesta de ${selectedProductData.name}`}
+                    className="personalize__generated-image"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="personalize__idea-summary">
+              <span>✦</span>
+
+              <div>
+                <small>Tu idea</small>
+                <p>
+                  {idea.trim()
+                    ? idea
+                    : 'Aquí aparecerá un resumen de la idea que escribas.'}
+                </p>
+              </div>
             </div>
 
             {generated && (
@@ -715,7 +657,7 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                   className="personalize__again"
                   onClick={handleGenerate}
                 >
-                  <span>✦</span>
+                  <span>↻</span>
                   Crear otra propuesta
                 </button>
 
@@ -732,36 +674,24 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                     </svg>
                   </span>
 
-                  <span className="personalize__whatsapp-copy">
+                  <span>
                     <small>¿Te gustó esta propuesta?</small>
                     <strong>Quiero este diseño</strong>
                   </span>
 
-                  <span className="personalize__whatsapp-arrow">✦</span>
+                  <b>→</b>
                 </a>
               </div>
             )}
 
             <div className="personalize__notice">
               <span>i</span>
-
               <p>
                 Esta imagen es una referencia visual. El diseño final se
                 confirma contigo antes de elaborar el producto.
               </p>
             </div>
-          </div>
-        </div>
-
-        <div className="personalize__footer-message">
-          <span>✦</span>
-
-          <p>
-            Cada diseño puede ser diferente.
-            <strong> Ahí está la magia.</strong>
-          </p>
-
-          <span>♥</span>
+          </aside>
         </div>
       </div>
     </section>
