@@ -1,0 +1,1029 @@
+.delivery {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: 52px 0 42px;
+
+  background:
+    radial-gradient(circle at 8% 22%, rgba(255, 135, 201, 0.2), transparent 25%),
+    radial-gradient(circle at 92% 22%, rgba(118, 186, 255, 0.2), transparent 27%),
+    linear-gradient(135deg, #fff8fc 0%, #faf7ff 48%, #f3fbff 100%);
+}
+
+.delivery *,
+.delivery *::before,
+.delivery *::after {
+  box-sizing: border-box;
+}
+
+.delivery__container {
+  position: relative;
+  z-index: 3;
+
+  width: min(1360px, calc(100% - 48px));
+
+  margin: 0 auto;
+}
+
+/* =====================================================
+   FONDO
+===================================================== */
+
+.delivery__glow {
+  position: absolute;
+
+  pointer-events: none;
+
+  border-radius: 50%;
+
+  filter: blur(18px);
+}
+
+.delivery__glow--pink {
+  top: -160px;
+  left: -170px;
+
+  width: 480px;
+  height: 480px;
+
+  background: rgba(255, 107, 190, 0.12);
+}
+
+.delivery__glow--blue {
+  right: -180px;
+  bottom: -170px;
+
+  width: 500px;
+  height: 500px;
+
+  background: rgba(92, 169, 244, 0.12);
+}
+
+/* =====================================================
+   HEADER MÁS COMPACTO
+===================================================== */
+
+.delivery__header {
+  max-width: 820px;
+
+  margin: 0 auto 38px;
+
+  text-align: center;
+}
+
+.delivery__eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #9750b3;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.delivery__eyebrow i {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff5ca9,
+      #8d71ee
+    );
+}
+
+.delivery__header h2 {
+  margin: 11px 0 0;
+
+  color: #382b41;
+
+  font-size:
+    clamp(
+      39px,
+      4.7vw,
+      64px
+    );
+
+  font-weight: 900;
+
+  line-height: 0.97;
+
+  letter-spacing: -3px;
+}
+
+.delivery__header h2 span {
+  background:
+    linear-gradient(
+      90deg,
+      #f83f9d,
+      #bd42d5 48%,
+      #4a95ee
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.delivery__header p {
+  margin: 11px auto 0;
+
+  color: #776d7c;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   RUTA — SIN TARJETAS
+===================================================== */
+
+.delivery__route {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 50px;
+
+  align-items: start;
+}
+
+.delivery__route-line {
+  position: absolute;
+  z-index: 0;
+
+  top: 68px;
+  left: 17%;
+  right: 17%;
+
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 91, 170, 0.55),
+      rgba(154, 90, 226, 0.52),
+      rgba(72, 161, 236, 0.52)
+    );
+
+  border-radius: 999px;
+}
+
+.delivery__route-line span {
+  position: absolute;
+
+  top: 50%;
+
+  width: 11px;
+  height: 11px;
+
+  background: #fff;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(255, 255, 255, 0.46);
+
+  transform: translateY(-50%);
+}
+
+.delivery__route-line span:first-child {
+  left: 33%;
+}
+
+.delivery__route-line span:last-child {
+  right: 33%;
+}
+
+/* =====================================================
+   PASOS FLOTANTES
+===================================================== */
+
+.delivery__step {
+  position: relative;
+  z-index: 1;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.delivery__number {
+  position: absolute;
+  z-index: 3;
+
+  top: -10px;
+  left: calc(50% + 41px);
+
+  min-width: 38px;
+  height: 25px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0 9px;
+
+  color: #fff;
+
+  border:
+    3px solid
+    rgba(255, 255, 255, 0.76);
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 7px 16px
+    rgba(85, 58, 99, 0.09);
+
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.delivery__step--pink .delivery__number {
+  background:
+    linear-gradient(
+      135deg,
+      #ff55a8,
+      #df45ac
+    );
+}
+
+.delivery__step--purple .delivery__number {
+  background:
+    linear-gradient(
+      135deg,
+      #9962ec,
+      #755be3
+    );
+}
+
+.delivery__step--blue .delivery__number {
+  background:
+    linear-gradient(
+      135deg,
+      #55aaf1,
+      #4a9be6
+    );
+}
+
+/* =====================================================
+   ICONOS PEQUEÑOS
+===================================================== */
+
+.delivery__icon {
+  width: 118px;
+  height: 118px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 7px;
+
+  background:
+    rgba(255, 255, 255, 0.25);
+
+  border:
+    1.5px solid
+    rgba(255, 255, 255, 0.68);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 17px 35px
+    rgba(102, 69, 117, 0.07),
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.84);
+
+  backdrop-filter:
+    blur(14px)
+    saturate(135%);
+
+  -webkit-backdrop-filter:
+    blur(14px)
+    saturate(135%);
+
+  transition:
+    transform 0.3s
+    cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.delivery__step:hover .delivery__icon {
+  transform:
+    translateY(-5px)
+    scale(1.04);
+}
+
+.delivery__icon svg {
+  width: 82px;
+  height: 82px;
+}
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.delivery__step > small {
+  margin-top: 6px;
+
+  color: #a08ca5;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.delivery__step h3 {
+  margin: 4px 0 0;
+
+  color: #423048;
+
+  font-size: 21px;
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.5px;
+}
+
+.delivery__step > p {
+  max-width: 315px;
+
+  margin: 7px auto 0;
+
+  color: #776d7b;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+/* =====================================================
+   MINI INFO
+===================================================== */
+
+.delivery__mini-info,
+.delivery__payments {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 10px;
+}
+
+.delivery__mini-info span,
+.delivery__payments span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding:
+    6px 9px;
+
+  color: #6f6173;
+
+  background:
+    rgba(255, 255, 255, 0.31);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.65);
+
+  border-radius: 999px;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.82);
+
+  backdrop-filter: blur(8px);
+
+  font-size: 7px;
+  font-weight: 800;
+}
+
+.delivery__dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+}
+
+.delivery__dot--1 {
+  background: #f84fa5;
+}
+
+.delivery__dot--2 {
+  background: #9761e7;
+}
+
+.delivery__dot--3 {
+  background: #53a6e9;
+}
+
+.delivery__dot--4 {
+  background: #f2b93c;
+}
+
+/* =====================================================
+   TIEMPO
+===================================================== */
+
+.delivery__time {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 10px;
+
+  padding:
+    7px 13px;
+
+  background:
+    rgba(255, 255, 255, 0.3);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.65);
+
+  border-radius: 999px;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.82);
+
+  backdrop-filter: blur(8px);
+}
+
+.delivery__time strong {
+  color: #4499df;
+
+  font-size: 33px;
+  font-weight: 900;
+
+  line-height: 0.9;
+}
+
+.delivery__time > span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.delivery__time b {
+  color: #55758e;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.delivery__time small {
+  color: #958998;
+
+  font-size: 6px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   FRANJA DE DOMICILIO — PROTAGONISTA
+===================================================== */
+
+.delivery__location-bar {
+  display: grid;
+
+  grid-template-columns:
+    1.45fr
+    auto
+    0.8fr
+    auto
+    0.8fr;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 31px;
+
+  padding:
+    14px 19px;
+
+  background:
+    linear-gradient(
+      105deg,
+      rgba(255, 205, 232, 0.61),
+      rgba(248, 236, 255, 0.46) 54%,
+      rgba(229, 246, 255, 0.49)
+    );
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.7);
+
+  border-radius:
+    31px 40px 29px 37px;
+
+  box-shadow:
+    0 18px 40px
+    rgba(115, 69, 123, 0.08),
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.92);
+
+  backdrop-filter:
+    blur(17px)
+    saturate(140%);
+
+  -webkit-backdrop-filter:
+    blur(17px)
+    saturate(140%);
+}
+
+/* =====================================================
+   DIRECCIÓN
+===================================================== */
+
+.delivery__address {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  min-width: 0;
+}
+
+.delivery__address-icon {
+  width: 67px;
+  height: 67px;
+
+  flex: 0 0 67px;
+
+  filter:
+    drop-shadow(
+      0 11px 14px
+      rgba(193, 42, 124, 0.15)
+    );
+}
+
+.delivery__address-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.delivery__address-copy {
+  min-width: 0;
+}
+
+.delivery__address-copy > small {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: #88526f;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.delivery__address-copy h3 {
+  margin: 0;
+
+  color: #492542;
+
+  font-size:
+    clamp(
+      20px,
+      2vw,
+      29px
+    );
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: -0.8px;
+}
+
+.delivery__address-copy h3 span {
+  padding:
+    0 4px;
+
+  color: #ee479c;
+}
+
+.delivery__address-copy p {
+  margin:
+    5px 0 0;
+
+  color: #79586f;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   DIVISORES
+===================================================== */
+
+.delivery__separator {
+  width: 1px;
+  height: 60px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(127, 92, 139, 0.19),
+      transparent
+    );
+}
+
+/* =====================================================
+   ENTREGA LOCAL
+===================================================== */
+
+.delivery__local,
+.delivery__shipping {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.delivery__local-icon {
+  width: 58px;
+  height: 51px;
+
+  flex: 0 0 58px;
+}
+
+.delivery__local-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.delivery__local small,
+.delivery__shipping small {
+  display: block;
+
+  color: #8a758a;
+
+  font-size: 7px;
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+}
+
+.delivery__local strong,
+.delivery__shipping strong {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #52334f;
+
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.delivery__local p,
+.delivery__shipping p {
+  margin:
+    3px 0 0;
+
+  color: #7c6f7d;
+
+  font-size: 7px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   NO ENVÍOS
+===================================================== */
+
+.delivery__shipping-symbol {
+  position: relative;
+
+  width: 43px;
+  height: 43px;
+
+  flex: 0 0 43px;
+
+  border:
+    4px solid #ff5ca2;
+
+  border-radius: 50%;
+}
+
+.delivery__shipping-symbol::after {
+  content: '';
+
+  position: absolute;
+
+  top: 17px;
+  left: 3px;
+
+  width: 30px;
+  height: 5px;
+
+  background: #ff5ca2;
+
+  border-radius: 999px;
+
+  transform:
+    rotate(45deg);
+}
+
+.delivery__shipping-symbol i {
+  position: absolute;
+
+  top: 11px;
+  left: 11px;
+
+  width: 14px;
+  height: 14px;
+
+  background: #d5b07c;
+
+  border-radius: 3px;
+}
+
+/* =====================================================
+   PARTE INFERIOR
+===================================================== */
+
+.delivery__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 14px;
+}
+
+.delivery__note {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin: 0;
+
+  color: #756b79;
+
+  font-size: 8px;
+  font-weight: 650;
+}
+
+.delivery__note > span {
+  width: 25px;
+  height: 25px;
+
+  flex: 0 0 25px;
+
+  display: grid;
+  place-items: center;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffc34a,
+      #ffa63f
+    );
+
+  border-radius: 9px 12px 8px 11px;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.delivery__whatsapp {
+  min-width: 286px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    8px 12px;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      105deg,
+      #20c767,
+      #2ed171,
+      #1bb75a
+    );
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.24);
+
+  border-radius:
+    20px 27px 18px 24px;
+
+  box-shadow:
+    0 13px 26px
+    rgba(25, 167, 81, 0.18);
+
+  text-decoration: none;
+
+  transition:
+    transform 0.28s
+    cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.delivery__whatsapp:hover {
+  transform:
+    translateY(-3px);
+}
+
+.delivery__whatsapp-icon {
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  display: grid;
+  place-items: center;
+
+  color: #fff;
+
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  border:
+    1.5px solid
+    rgba(255, 255, 255, 0.17);
+
+  border-radius:
+    12px 16px 11px 15px;
+}
+
+.delivery__whatsapp-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.delivery__whatsapp > span:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.delivery__whatsapp small {
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 6px;
+}
+
+.delivery__whatsapp strong {
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+  .delivery__route {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .delivery__route-line {
+    display: none;
+  }
+
+  .delivery__location-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery__separator {
+    width: 100%;
+    height: 1px;
+  }
+
+  .delivery__bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .delivery__whatsapp {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+  .delivery {
+    padding:
+      48px 0 38px;
+  }
+
+  .delivery__container {
+    width:
+      calc(100% - 24px);
+  }
+
+  .delivery__header {
+    margin-bottom: 30px;
+  }
+
+  .delivery__header h2 {
+    font-size: 38px;
+
+    letter-spacing: -2px;
+  }
+
+  .delivery__icon {
+    width: 105px;
+    height: 105px;
+  }
+
+  .delivery__icon svg {
+    width: 74px;
+    height: 74px;
+  }
+
+  .delivery__number {
+    left:
+      calc(50% + 35px);
+  }
+
+  .delivery__address {
+    align-items: flex-start;
+  }
+
+  .delivery__address-icon {
+    width: 56px;
+    height: 56px;
+
+    flex-basis: 56px;
+  }
+
+  .delivery__address-copy h3 {
+    font-size: 20px;
+  }
+
+  .delivery__local,
+  .delivery__shipping {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .delivery__icon,
+  .delivery__whatsapp {
+    transition: none;
+  }
+}

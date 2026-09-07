@@ -1,0 +1,749 @@
+.howtobuy {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 72px 0 54px;
+  background:
+    radial-gradient(
+      circle at 8% 18%,
+      rgba(255, 139, 202, 0.22),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 94% 15%,
+      rgba(125, 185, 255, 0.2),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 82% 84%,
+      rgba(182, 139, 255, 0.14),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #fff8fc 0%,
+      #faf7ff 48%,
+      #f3fbff 100%
+    );
+}
+
+.howtobuy *,
+.howtobuy *::before,
+.howtobuy *::after {
+  box-sizing: border-box;
+}
+
+.howtobuy__container {
+  position: relative;
+  z-index: 3;
+  width: min(1360px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* FONDO */
+
+.howtobuy__glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(14px);
+}
+
+.howtobuy__glow--pink {
+  top: -120px;
+  left: -110px;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 124, 196, 0.13);
+}
+
+.howtobuy__glow--blue {
+  right: -150px;
+  bottom: -140px;
+  width: 420px;
+  height: 420px;
+  background: rgba(91, 169, 242, 0.13);
+}
+
+.howtobuy__bubble {
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.howtobuy__bubble--one {
+  top: 150px;
+  left: 3%;
+  width: 62px;
+  height: 62px;
+}
+
+.howtobuy__bubble--two {
+  top: 110px;
+  right: 7%;
+  width: 96px;
+  height: 96px;
+}
+
+.howtobuy__bubble--three {
+  right: 3%;
+  bottom: 110px;
+  width: 48px;
+  height: 48px;
+}
+
+/* HEADER */
+
+.howtobuy__header {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.howtobuy__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  color: #9751b2;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.66);
+  border-radius: 999px;
+  box-shadow:
+    0 12px 26px rgba(112, 75, 135, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(13px);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.howtobuy__eyebrow span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5ba8, #8e73f1);
+}
+
+.howtobuy__header h2 {
+  margin: 18px 0 0;
+  color: #392c43;
+  font-size: clamp(43px, 5vw, 68px);
+  font-weight: 900;
+  line-height: 0.97;
+  letter-spacing: -3px;
+}
+
+.howtobuy__header h2 strong {
+  font-weight: 900;
+  background: linear-gradient(
+    90deg,
+    #f33f9b,
+    #ab44d7 48%,
+    #4a94ef
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.howtobuy__header p {
+  max-width: 650px;
+  margin: 16px auto 0;
+  color: #766d7b;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.6;
+}
+
+/* PASOS */
+
+.howtobuy__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* CONECTOR */
+
+.howtobuy__route {
+  position: absolute;
+  z-index: 0;
+  top: 93px;
+  left: 8%;
+  right: 8%;
+  height: 14px;
+  pointer-events: none;
+}
+
+.howtobuy__route::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 104, 175, 0.28),
+    rgba(159, 109, 237, 0.3),
+    rgba(78, 159, 236, 0.28),
+    rgba(242, 177, 56, 0.3)
+  );
+}
+
+.howtobuy__route-node {
+  position: absolute;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border: 3px solid rgba(255, 255, 255, 0.88);
+  border-radius: 50%;
+  box-shadow: 0 5px 14px rgba(99, 65, 114, 0.09);
+}
+
+.howtobuy__route-node--one {
+  left: 27%;
+  background: #e46ab8;
+}
+
+.howtobuy__route-node--two {
+  left: 50%;
+  background: #8d74ef;
+  transform: translateX(-50%);
+}
+
+.howtobuy__route-node--three {
+  right: 27%;
+  background: #68acef;
+}
+
+/* TARJETAS */
+
+.howtobuy__card {
+  position: relative;
+  z-index: 1;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 18px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.67);
+  box-shadow:
+    0 8px 0 rgba(104, 72, 119, 0.025),
+    0 21px 43px rgba(105, 73, 119, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.91);
+  backdrop-filter: blur(17px) saturate(140%);
+  -webkit-backdrop-filter: blur(17px) saturate(140%);
+  transition:
+    transform 0.28s cubic-bezier(.34, 1.56, .64, 1),
+    box-shadow 0.28s ease;
+}
+
+.howtobuy__card:nth-of-type(2) {
+  border-radius: 31px 38px 28px 34px;
+}
+
+.howtobuy__card:nth-of-type(3) {
+  border-radius: 37px 27px 36px 29px;
+}
+
+.howtobuy__card:nth-of-type(4) {
+  border-radius: 29px 39px 30px 36px;
+}
+
+.howtobuy__card:nth-of-type(5) {
+  border-radius: 38px 29px 37px 27px;
+}
+
+.howtobuy__card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 10px 0 rgba(104, 72, 119, 0.02),
+    0 28px 48px rgba(105, 73, 119, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.howtobuy__card--pink {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 229, 242, 0.56),
+    rgba(255, 255, 255, 0.22)
+  );
+}
+
+.howtobuy__card--purple {
+  background: linear-gradient(
+    145deg,
+    rgba(239, 228, 255, 0.56),
+    rgba(255, 255, 255, 0.22)
+  );
+}
+
+.howtobuy__card--blue {
+  background: linear-gradient(
+    145deg,
+    rgba(226, 244, 255, 0.59),
+    rgba(255, 255, 255, 0.22)
+  );
+}
+
+.howtobuy__card--yellow {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 245, 214, 0.6),
+    rgba(255, 255, 255, 0.22)
+  );
+}
+
+/* PARTE SUPERIOR */
+
+.howtobuy__card-top {
+  min-height: 87px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.howtobuy__number {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  border: 3px solid rgba(255, 255, 255, 0.43);
+  border-radius: 19px 24px 17px 22px;
+  box-shadow: 0 10px 24px rgba(110, 71, 134, 0.15);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.howtobuy__number--pink {
+  background: linear-gradient(145deg, #ff4fa5, #ef78bf);
+}
+
+.howtobuy__number--purple {
+  background: linear-gradient(145deg, #8c5ff0, #b16ef0);
+}
+
+.howtobuy__number--blue {
+  background: linear-gradient(145deg, #4b9bef, #71bff4);
+}
+
+.howtobuy__number--yellow {
+  background: linear-gradient(145deg, #ffb33a, #ffd15e);
+}
+
+.howtobuy__icon {
+  position: relative;
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.73);
+  border-radius: 26px 31px 23px 29px;
+  box-shadow:
+    0 14px 28px rgba(101, 67, 116, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.howtobuy__card:hover .howtobuy__icon {
+  transform: translateY(-4px) rotate(2deg);
+}
+
+.howtobuy__icon svg {
+  width: 62px;
+  height: 62px;
+}
+
+/* TEXTO */
+
+.howtobuy__card small {
+  display: block;
+  margin: 3px 0 6px;
+  color: #a38fa9;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.howtobuy__card h3 {
+  margin: 0;
+  color: #44304b;
+  font-size: 21px;
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.6px;
+}
+
+.howtobuy__card > p {
+  margin: 11px 0 18px;
+  color: #776d7c;
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.6;
+}
+
+/* ETIQUETAS DE ABAJO */
+
+.howtobuy__label {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: auto;
+  padding: 8px 13px;
+  background: rgba(255, 255, 255, 0.34);
+  border: 1.5px solid rgba(255, 255, 255, 0.66);
+  border-radius: 17px 24px 16px 22px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(10px);
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.55px;
+}
+
+.howtobuy__label > span {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+}
+
+.howtobuy__label--pink {
+  color: #d93f8e;
+}
+
+.howtobuy__label--pink > span {
+  background: #ef66ad;
+}
+
+.howtobuy__label--purple {
+  color: #8651cd;
+}
+
+.howtobuy__label--purple > span {
+  background: #9b6ce0;
+}
+
+.howtobuy__label--blue {
+  color: #3e91dd;
+}
+
+.howtobuy__label--blue > span {
+  background: #64ace9;
+}
+
+.howtobuy__label--yellow {
+  color: #df9c19;
+}
+
+.howtobuy__label--yellow > span {
+  background: #f3ba3f;
+}
+
+/* PARTE INFERIOR */
+
+.howtobuy__bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+/* TIP */
+
+.howtobuy__tip {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 17px;
+  background: rgba(255, 255, 255, 0.34);
+  border: 1.5px solid rgba(255, 255, 255, 0.67);
+  border-radius: 23px 30px 21px 27px;
+  box-shadow:
+    0 12px 28px rgba(104, 68, 119, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px);
+}
+
+.howtobuy__tip-mark {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  border-radius: 17px 22px 16px 20px;
+  background: linear-gradient(145deg, #ffd360, #ffbd42);
+  border: 3px solid rgba(255, 255, 255, 0.47);
+  box-shadow: 0 10px 22px rgba(195, 143, 44, 0.13);
+}
+
+.howtobuy__tip-mark span {
+  position: absolute;
+  left: 50%;
+  width: 5px;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.howtobuy__tip-mark span:nth-child(1) {
+  top: 11px;
+  height: 14px;
+  transform: translateX(-50%);
+}
+
+.howtobuy__tip-mark span:nth-child(2) {
+  top: 28px;
+  height: 5px;
+  transform: translateX(-50%);
+}
+
+.howtobuy__tip-mark span:nth-child(3) {
+  top: 36px;
+  height: 4px;
+  opacity: 0.75;
+  transform: translateX(-50%);
+}
+
+.howtobuy__tip p {
+  margin: 0;
+  color: #776d7c;
+  font-size: 11px;
+  font-weight: 550;
+  line-height: 1.55;
+}
+
+.howtobuy__tip strong {
+  color: #a243b3;
+  font-size: 12px;
+}
+
+/* CTA */
+
+.howtobuy__cta {
+  position: relative;
+  min-width: 310px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(
+    105deg,
+    #ff449d,
+    #d13dc0 38%,
+    #9050df 66%,
+    #4692ec
+  );
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px 32px 22px 30px;
+  box-shadow:
+    0 8px 0 rgba(109, 67, 171, 0.07),
+    0 20px 36px rgba(139, 60, 183, 0.2);
+  text-decoration: none;
+  transition:
+    transform 0.3s cubic-bezier(.34, 1.56, .64, 1),
+    box-shadow 0.3s ease;
+}
+
+.howtobuy__cta::before {
+  content: '';
+  position: absolute;
+  top: -35px;
+  right: 35px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.howtobuy__cta:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 0 rgba(109, 67, 171, 0.06),
+    0 26px 43px rgba(139, 60, 183, 0.27);
+}
+
+.howtobuy__cta-mark {
+  position: relative;
+  width: 47px;
+  height: 47px;
+  flex: 0 0 47px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px 21px 15px 19px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.howtobuy__cta-mark span {
+  position: absolute;
+  border-radius: 999px;
+  border: 3px solid transparent;
+}
+
+.howtobuy__cta-mark span:nth-child(1) {
+  inset: 9px;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  transform: rotate(20deg);
+}
+
+.howtobuy__cta-mark span:nth-child(2) {
+  inset: 14px;
+  border-top-color: #ffe66f;
+  border-left-color: #ffe66f;
+  transform: rotate(20deg);
+}
+
+.howtobuy__cta-mark span:nth-child(3) {
+  width: 6px;
+  height: 6px;
+  right: 7px;
+  top: 8px;
+  background: #fff;
+  border: 0;
+}
+
+.howtobuy__cta > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.howtobuy__cta small {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 7px;
+  font-weight: 650;
+}
+
+.howtobuy__cta strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.howtobuy__cta > i {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.howtobuy__cta > i::before,
+.howtobuy__cta > i::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  background: #fff;
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.howtobuy__cta > i::before {
+  top: 8px;
+  width: 2px;
+  height: 14px;
+}
+
+.howtobuy__cta > i::after {
+  top: 14px;
+  width: 14px;
+  height: 2px;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+  .howtobuy__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .howtobuy__route {
+    display: none;
+  }
+
+  .howtobuy__bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .howtobuy__cta {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .howtobuy {
+    padding: 62px 0 44px;
+  }
+
+  .howtobuy__container {
+    width: calc(100% - 24px);
+  }
+
+  .howtobuy__header {
+    margin-bottom: 28px;
+  }
+
+  .howtobuy__header h2 {
+    font-size: 39px;
+    letter-spacing: -2px;
+  }
+
+  .howtobuy__header p {
+    font-size: 12px;
+  }
+
+  .howtobuy__steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .howtobuy__card {
+    min-height: auto;
+    padding: 18px 16px;
+  }
+
+  .howtobuy__card-top {
+    min-height: 78px;
+  }
+
+  .howtobuy__icon {
+    width: 74px;
+    height: 74px;
+  }
+
+  .howtobuy__icon svg {
+    width: 54px;
+    height: 54px;
+  }
+
+  .howtobuy__bubble {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .howtobuy__card,
+  .howtobuy__icon,
+  .howtobuy__cta {
+    transition: none;
+  }
+}
