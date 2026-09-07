@@ -223,6 +223,8 @@ function Personalize() {
   const [generated, setGenerated] = useState(false)
   const [loading, setLoading] = useState(false)
   const [showMore, setShowMore] = useState(false)
+  const [generatedImage, setGeneratedImage] = useState('')
+  const [error, setError] = useState('')
 
   const selectedProductData =
     allProducts.find((product) => product.id === selectedProduct) ||
@@ -232,6 +234,8 @@ function Personalize() {
     setSelectedProduct(product.id)
     setIdea('')
     setGenerated(false)
+    setGeneratedImage('')
+    setError('')
     setLoading(false)
 
     if (extraProducts.some((item) => item.id === product.id)) {
@@ -239,16 +243,60 @@ function Personalize() {
     }
   }
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     if (!idea.trim() || loading) return
 
-    setGenerated(false)
-    setLoading(true)
+    try {
+      setGenerated(false)
+      setGeneratedImage('')
+      setError('')
+      setLoading(true)
 
-    setTimeout(() => {
-      setLoading(false)
+      const response = await fetch(
+        'http://localhost:3001/api/generate-design',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            productId: selectedProductData.id,
+            productName: selectedProductData.name,
+            idea: idea.trim(),
+            generationGuide: selectedProductData.generationGuide,
+            details: selectedProductData.details,
+          }),
+        }
+      )
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(
+          data.error || 'No se pudo generar el diseño.'
+        )
+      }
+
+      if (!data.image) {
+        throw new Error(
+          'El servidor no devolvió una imagen.'
+        )
+      }
+
+      setGeneratedImage(data.image)
       setGenerated(true)
-    }, 1800)
+    } catch (generateError) {
+      console.error('Error generando diseño:', generateError)
+
+      setGenerated(false)
+      setGeneratedImage('')
+      setError(
+        generateError.message ||
+          'No se pudo generar el diseño. Intenta nuevamente.'
+      )
+    } finally {
+      setLoading(false)
+    }
   }
 
   const whatsappMessage = encodeURIComponent(
@@ -466,6 +514,8 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                   onChange={(event) => {
                     setIdea(event.target.value)
                     setGenerated(false)
+                    setGeneratedImage('')
+                    setError('')
                   }}
                   placeholder={selectedProductData.placeholder}
                 />
@@ -510,6 +560,12 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                   {loading ? '•••' : '✦'}
                 </span>
               </button>
+
+              {error && (
+                <p className="personalize__error" role="alert">
+                  {error}
+                </p>
+              )}
             </div>
           </div>
 
@@ -635,17 +691,13 @@ Vi una propuesta en la página y me gustaría continuar con este diseño.`
                     <span className="personalize__tape personalize__tape--one" />
                     <span className="personalize__tape personalize__tape--two" />
 
-                    <div className="personalize__generated-content">
-                      <span className="personalize__generated-emoji">
-                        {selectedProductData.emoji}
-                      </span>
-
-                      <div>
-                        <small>SD CREATIONS</small>
-                        <strong>{selectedProductData.name}</strong>
-                        <span>{selectedProductData.customization} ✦</span>
-                      </div>
-                    </div>
+                    {generatedImage && (
+                      <img
+                        src={generatedImage}
+                        alt={`Propuesta de ${selectedProductData.name}`}
+                        className="personalize__generated-image"
+                      />
+                    )}
                   </div>
 
                   <div className="personalize__generated-description">
