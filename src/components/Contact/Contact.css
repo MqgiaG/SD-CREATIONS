@@ -1,0 +1,853 @@
+.contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 36px 0 24px;
+  background:
+    radial-gradient(circle at 8% 23%, rgba(255, 134, 198, 0.24), transparent 26%),
+    radial-gradient(circle at 92% 19%, rgba(113, 190, 255, 0.21), transparent 27%),
+    radial-gradient(circle at 48% 100%, rgba(199, 129, 232, 0.1), transparent 25%),
+    linear-gradient(135deg, #fff6fb 0%, #fbf7ff 49%, #f1faff 100%);
+}
+
+.contact *,
+.contact *::before,
+.contact *::after {
+  box-sizing: border-box;
+}
+
+.contact__container {
+  position: relative;
+  z-index: 5;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* =========================
+   FONDOS
+========================= */
+
+.contact__wash {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(34px);
+}
+
+.contact__wash--pink {
+  top: -180px;
+  left: -190px;
+  width: 470px;
+  height: 470px;
+  background: rgba(255, 108, 185, 0.12);
+}
+
+.contact__wash--blue {
+  right: -190px;
+  bottom: -170px;
+  width: 470px;
+  height: 470px;
+  background: rgba(87, 172, 243, 0.11);
+}
+
+/* =========================
+   ILUSTRACIONES
+========================= */
+
+.contact__gift,
+.contact__balloons,
+.contact__mug,
+.contact__star {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 22px rgba(86, 59, 100, 0.08));
+}
+
+.contact__gift {
+  top: 110px;
+  left: 3%;
+  width: 138px;
+  transform: rotate(-7deg);
+  animation: contactFloatOne 5.8s ease-in-out infinite;
+}
+
+.contact__balloons {
+  top: 92px;
+  right: 3%;
+  width: 138px;
+  transform: rotate(3deg);
+  animation: contactFloatTwo 6.4s ease-in-out infinite;
+}
+
+.contact__mug {
+  left: 4%;
+  bottom: 92px;
+  width: 118px;
+  transform: rotate(5deg);
+  animation: contactFloatTwo 6s ease-in-out infinite;
+}
+
+.contact__star {
+  right: 7%;
+  bottom: 110px;
+  width: 84px;
+  transform: rotate(8deg);
+  animation: contactFloatOne 5.5s ease-in-out infinite;
+}
+
+.contact__gift svg,
+.contact__balloons svg,
+.contact__mug svg,
+.contact__star svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
+   DECORACIONES
+========================= */
+
+.contact__doodle-heart {
+  position: absolute;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  background: #ff72b2;
+  border-radius: 3px 50% 50% 50%;
+  transform: rotate(-45deg);
+}
+
+.contact__doodle-heart::before,
+.contact__doodle-heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.contact__doodle-heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.contact__doodle-heart::after {
+  top: 0;
+  left: 10px;
+}
+
+.contact__doodle-heart--one {
+  top: 86px;
+  left: 19%;
+  transform: scale(0.52) rotate(-45deg);
+}
+
+.contact__doodle-heart--two {
+  right: 16%;
+  bottom: 120px;
+  background: #6abdf3;
+  transform: scale(0.42) rotate(-45deg);
+}
+
+.contact__confetti {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 999px;
+}
+
+.contact__confetti--one {
+  top: 96px;
+  left: 28%;
+  width: 9px;
+  height: 9px;
+  background: #ffd04e;
+}
+
+.contact__confetti--two {
+  top: 190px;
+  right: 21%;
+  width: 8px;
+  height: 8px;
+  background: #8e66e8;
+}
+
+.contact__confetti--three {
+  left: 8%;
+  bottom: 80px;
+  width: 8px;
+  height: 8px;
+  background: #5fc2ef;
+}
+
+.contact__confetti--four {
+  right: 8%;
+  bottom: 60px;
+  width: 11px;
+  height: 11px;
+  background: #ff77b4;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.contact__header {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #8c47ab;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+
+.contact__eyebrow i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4f9f, #8969ed);
+}
+
+.contact__header h2 {
+  margin: 0;
+  color: #33273b;
+  font-size: clamp(50px, 5.1vw, 74px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -2.5px;
+}
+
+.contact__header h2 span {
+  display: block;
+  margin-top: 6px;
+  background: linear-gradient(90deg, #ff449d, #d444d1 48%, #5d6fee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.contact__header > p {
+  max-width: 720px;
+  margin: 14px auto 0;
+  color: #5f5464;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+/* =========================
+   BENEFICIOS
+========================= */
+
+.contact__benefits {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.contact__benefit {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 16px 7px 9px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  box-shadow:
+    0 10px 18px rgba(95, 67, 107, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+.contact__benefit-symbol {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.contact__benefit strong {
+  color: #54485a;
+  font-size: 13px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.contact__benefit--pink .contact__benefit-symbol {
+  color: #f9519f;
+  background: #ffe3f0;
+}
+
+.contact__benefit--yellow .contact__benefit-symbol {
+  color: #e6a100;
+  background: #fff0bc;
+}
+
+.contact__benefit--purple .contact__benefit-symbol {
+  color: #9257dc;
+  background: #eee1ff;
+}
+
+/* =========================
+   BOTON WHATSAPP
+========================= */
+
+.contact__whatsapp {
+  position: relative;
+  width: fit-content;
+  display: inline-grid;
+  grid-template-columns: 46px auto 28px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 8px 11px 8px 9px;
+  color: #fff;
+  background: linear-gradient(105deg, #25ce69, #3bd77b 52%, #20bf61);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px 28px 18px 24px;
+  box-shadow: 0 12px 22px rgba(26, 169, 82, 0.18);
+  text-decoration: none;
+  transition:
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.28s ease;
+}
+
+.contact__whatsapp:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 30px rgba(26, 169, 82, 0.24);
+}
+
+.contact__whatsapp-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  color: #27c969;
+  background: #fff;
+  border-radius: 15px 18px 14px 17px;
+  box-shadow: 0 8px 15px rgba(11, 113, 50, 0.1);
+}
+
+.contact__whatsapp-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.contact__whatsapp-copy {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contact__whatsapp-copy small {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact__whatsapp-copy strong {
+  margin-top: 2px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.contact__whatsapp-chevron {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+}
+
+.contact__whatsapp-chevron i {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg) translate(-1px, 1px);
+}
+
+.contact__whatsapp-message {
+  display: block;
+  margin-top: 8px;
+  color: #8e59b2;
+  font-size: 12px;
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* =========================
+   DOMICILIO
+========================= */
+
+.contact__location {
+  position: relative;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 22px auto 0;
+  padding: 18px 28px 14px;
+  text-align: center;
+}
+
+.contact__location::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 6px -40px 0;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 207, 231, 0.28),
+    rgba(247, 232, 255, 0.24) 50%,
+    rgba(218, 242, 255, 0.3)
+  );
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 49% 51% 47% 53% / 59% 44% 56% 41%;
+  box-shadow:
+    0 16px 30px rgba(96, 68, 109, 0.045),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.contact__location-swoosh {
+  position: absolute;
+  z-index: -2;
+  width: 150px;
+  height: 14px;
+  border-radius: 999px;
+}
+
+.contact__location-swoosh--pink {
+  left: -90px;
+  top: 62px;
+  background: linear-gradient(90deg, transparent, rgba(255, 82, 165, 0.45));
+  transform: rotate(-8deg);
+}
+
+.contact__location-swoosh--blue {
+  right: -92px;
+  bottom: 40px;
+  background: linear-gradient(90deg, rgba(75, 165, 238, 0.42), transparent);
+  transform: rotate(8deg);
+}
+
+.contact__pin {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 8px 11px rgba(161, 61, 143, 0.12));
+}
+
+.contact__pin svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contact__location > small {
+  color: #8f7a95;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+
+.contact__location h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 6px 0 0;
+  color: #3f2d46;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.contact__location h3 i {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  background: #ff4fa1;
+  border-radius: 50%;
+}
+
+.contact__location > p {
+  margin: 8px 0 0;
+  color: #6e6271;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.contact__location-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.contact__location-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  color: #5f5464;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.contact__location-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.contact__location-dot--pink {
+  background: #ff55a6;
+}
+
+.contact__location-dot--blue {
+  background: #55a9ed;
+}
+
+/* =========================
+   REDES
+========================= */
+
+.contact__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.contact__social-line {
+  width: 46px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(130, 96, 143, 0.28));
+}
+
+.contact__social-line--right {
+  background: linear-gradient(90deg, rgba(130, 96, 143, 0.28), transparent);
+}
+
+.contact__social > p {
+  margin: 0;
+  color: #7c7183;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.contact__social > p strong {
+  color: #b63fa2;
+}
+
+.contact__social-links {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.contact__social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px 5px 6px;
+  color: #584b5e;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 850;
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.25s ease;
+}
+
+.contact__social-links a:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.contact__social-links svg {
+  width: 26px;
+  height: 26px;
+}
+
+.contact__group-icon {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  color: #25c969;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.contact__group-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+/* =========================
+   CIERRE
+========================= */
+
+.contact__closing {
+  margin-top: 12px;
+  color: #877b8b;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.contact__closing strong {
+  color: #c342ab;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes contactFloatOne {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes contactFloatTwo {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 7px;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1120px) {
+  .contact__gift,
+  .contact__balloons {
+    width: 110px;
+    opacity: 0.75;
+  }
+
+  .contact__mug {
+    width: 94px;
+    opacity: 0.75;
+  }
+
+  .contact__star {
+    width: 70px;
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 850px) {
+  .contact__gift,
+  .contact__balloons,
+  .contact__mug,
+  .contact__star {
+    opacity: 0.27;
+  }
+
+  .contact__gift {
+    left: -33px;
+  }
+
+  .contact__balloons {
+    right: -38px;
+  }
+
+  .contact__mug {
+    left: -35px;
+  }
+
+  .contact__star {
+    right: -18px;
+  }
+
+  .contact__social {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 680px) {
+  .contact {
+    padding: 32px 0 22px;
+  }
+
+  .contact__container {
+    width: calc(100% - 22px);
+  }
+
+  .contact__header h2 {
+    font-size: 40px;
+    letter-spacing: -2px;
+  }
+
+  .contact__header > p {
+    font-size: 14px;
+  }
+
+  .contact__benefits {
+    gap: 8px;
+  }
+
+  .contact__benefit {
+    min-height: 42px;
+    padding: 6px 10px 6px 7px;
+  }
+
+  .contact__benefit-symbol {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+    font-size: 12px;
+  }
+
+  .contact__benefit strong {
+    font-size: 10px;
+  }
+
+  .contact__whatsapp-copy strong {
+    font-size: 17px;
+  }
+
+  .contact__gift {
+    top: 190px;
+    left: -56px;
+  }
+
+  .contact__balloons {
+    top: 145px;
+    right: -64px;
+  }
+
+  .contact__mug,
+  .contact__star {
+    display: none;
+  }
+
+  .contact__doodle-heart,
+  .contact__confetti {
+    display: none;
+  }
+
+  .contact__location {
+    padding: 16px 12px 14px;
+  }
+
+  .contact__location::before {
+    inset: 8px -2px 2px;
+    border-radius: 27px;
+  }
+
+  .contact__location-swoosh {
+    display: none;
+  }
+
+  .contact__location > small {
+    font-size: 10px;
+  }
+
+  .contact__location h3 {
+    font-size: 24px;
+  }
+
+  .contact__location > p {
+    font-size: 13px;
+  }
+
+  .contact__location-info span {
+    font-size: 10px;
+  }
+
+  .contact__social {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact__social-line {
+    display: none;
+  }
+
+  .contact__social > p {
+    font-size: 11px;
+  }
+
+  .contact__social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contact__social-links a {
+    font-size: 10px;
+  }
+
+  .contact__closing {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact__gift,
+  .contact__balloons,
+  .contact__mug,
+  .contact__star {
+    animation: none;
+  }
+
+  .contact__whatsapp,
+  .contact__social-links a {
+    transition: none;
+  }
+}
