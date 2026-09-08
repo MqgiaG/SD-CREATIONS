@@ -1108,27 +1108,27 @@
 
   .cart__top {
     padding:
-      22px 20px 15px;
+      20px 18px 14px;
   }
 
   .cart__top::after {
-    left: 20px;
-    right: 20px;
+    left: 18px;
+    right: 18px;
   }
 
   .cart__items {
     padding:
-      14px 14px 10px;
+      13px 13px 9px;
   }
 
   .cart__note {
     padding:
-      10px 16px 8px;
+      10px 14px 8px;
   }
 
   .cart__footer {
     padding:
-      12px 16px 16px;
+      11px 14px 14px;
   }
 }
 
@@ -1142,10 +1142,16 @@
       auto 0 0 0;
 
     width: 100%;
-    height: min(88dvh, 760px);
+    height:
+      min(
+        92dvh,
+        820px
+      );
+
+    max-height: 92dvh;
 
     border-radius:
-      30px 30px 0 0;
+      28px 28px 0 0;
 
     transform:
       translateY(105%);
@@ -1165,64 +1171,552 @@
       translateY(0);
   }
 
+  /* AGARRADERA VISUAL */
+
+  .cart__drawer::before {
+    content: '';
+
+    position: absolute;
+    z-index: 10;
+
+    top: 7px;
+    left: 50%;
+
+    width: 42px;
+    height: 4px;
+
+    border-radius: 999px;
+
+    background:
+      rgba(
+        125,
+        89,
+        132,
+        0.18
+      );
+
+    transform:
+      translateX(-50%);
+  }
+
+  /* =========================
+     HEADER MOBILE
+  ========================= */
+
   .cart__top {
     align-items: center;
 
+    gap: 10px;
+
     padding:
-      19px 18px 14px;
+      19px
+      14px
+      12px;
+  }
+
+  .cart__top::after {
+    left: 14px;
+    right: 14px;
+  }
+
+  .cart__eyebrow {
+    margin-bottom: 1px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.13em;
   }
 
   .cart__top h2 {
-    font-size: 27px;
+    font-size: 25px;
+
+    letter-spacing: -0.035em;
   }
+
+  .cart__top-actions {
+    gap: 6px;
+  }
+
+  .cart__count {
+    min-width: 31px;
+    height: 31px;
+
+    padding:
+      0 8px;
+
+    font-size: 10px;
+  }
+
+  .cart__close {
+    width: 34px;
+    height: 34px;
+
+    font-size: 23px;
+  }
+
+  /* =========================
+     ITEMS MOBILE
+  ========================= */
 
   .cart__items {
     padding:
-      12px 12px 8px;
+      10px
+      10px
+      8px;
+
+    scroll-padding-bottom: 14px;
   }
 
   .cart-item {
     grid-template-columns:
-      76px minmax(0, 1fr);
+      82px
+      minmax(0, 1fr);
 
     gap: 10px;
 
     padding: 9px;
 
+    margin-bottom: 9px;
+
     border-radius:
-      20px 15px 20px 16px;
+      20px 15px
+      20px 16px;
   }
 
   .cart-item__image {
-    width: 76px;
-    height: 76px;
+    width: 82px;
+    height: 82px;
 
     border-radius:
-      17px 12px 17px 13px;
+      17px 12px
+      17px 13px;
+  }
+
+  .cart-item__image::after {
+    inset: 3px;
+  }
+
+  .cart-item__image img {
+    padding: 3px;
+
+    object-fit: cover;
   }
 
   .cart-item__heading h3 {
-    font-size: 12px;
+    margin-top: 1px;
+
+    font-size: 12.5px;
+
+    line-height: 1.15;
+  }
+
+  .cart-item__heading > div > span {
+    padding:
+      3px
+      6px;
+
+    font-size: 8px;
+  }
+
+  .cart-item__remove {
+    width: 26px;
+    height: 26px;
+  }
+
+  .cart-item__remove svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .cart-item__custom {
+    margin:
+      4px 0
+      5px;
+
+    font-size: 9px;
+
+    line-height: 1.3;
   }
 
   .cart-item__bottom {
+    gap: 7px;
+
     margin-top: 5px;
   }
 
+  .cart-item__quantity {
+    padding: 2px;
+  }
+
   .cart-item__quantity button {
-    width: 23px;
-    height: 23px;
+    width: 24px;
+    height: 24px;
+
+    font-size: 15px;
+  }
+
+  .cart-item__quantity strong {
+    min-width: 21px;
+
+    font-size: 10px;
+  }
+
+  .cart-item__price small {
+    font-size: 7px;
   }
 
   .cart-item__price strong {
-    font-size: 12px;
+    font-size: 12.5px;
+  }
+
+  /* =========================
+     NOTE MOBILE
+  ========================= */
+
+  .cart__note {
+    padding:
+      8px
+      11px
+      7px;
+  }
+
+  .cart__note label {
+    margin-bottom: 5px;
+
+    font-size: 8.5px;
   }
 
   .cart__note textarea {
-    min-height: 48px;
+    min-height: 45px;
+    max-height: 70px;
+
+    padding:
+      8px
+      10px
+      16px;
+
+    border-radius:
+      14px 11px
+      14px 12px;
+
+    font-size: 9px;
+  }
+
+  .cart__note > small {
+    right: 18px;
+    bottom: 12px;
+
+    font-size: 7px;
+  }
+
+  /* =========================
+     FOOTER MOBILE
+  ========================= */
+
+  .cart__footer {
+    padding:
+      10px
+      11px
+      calc(
+        12px +
+        env(
+          safe-area-inset-bottom
+        )
+      );
+
+    box-shadow:
+      0 -8px 24px
+      rgba(
+        98,
+        63,
+        109,
+        0.06
+      );
+  }
+
+  .cart__total {
+    margin-bottom: 8px;
+  }
+
+  .cart__total span {
+    font-size: 9.5px;
+  }
+
+  .cart__total small {
+    font-size: 7px;
+  }
+
+  .cart__total > strong {
+    font-size: 19px;
   }
 
   .cart__whatsapp {
-    min-height: 54px;
+    min-height: 52px;
+
+    grid-template-columns:
+      36px
+      1fr
+      auto;
+
+    gap: 8px;
+
+    padding:
+      7px
+      11px
+      7px
+      8px;
+
+    border-radius:
+      19px 14px
+      19px 15px;
+  }
+
+  .cart__whatsapp-icon {
+    width: 36px;
+    height: 36px;
+
+    border-radius:
+      13px 10px
+      13px 11px;
+  }
+
+  .cart__whatsapp-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .cart__whatsapp small {
+    font-size: 7px;
+  }
+
+  .cart__whatsapp strong {
+    font-size: 12px;
+  }
+
+  .cart__whatsapp > b {
+    font-size: 15px;
+  }
+
+  .cart__continue {
+    margin-top: 6px;
+
+    padding:
+      8px
+      10px;
+
+    font-size: 8px;
+  }
+
+  .cart__clear {
+    margin-top: 5px;
+
+    font-size: 7.5px;
+  }
+
+  /* =========================
+     EMPTY MOBILE
+  ========================= */
+
+  .cart__empty {
+    padding:
+      24px
+      18px;
+  }
+
+  .cart__empty-illustration {
+    width: 120px;
+    height: 120px;
+
+    margin-bottom: 10px;
+  }
+
+  .cart__empty-illustration svg {
+    width: 96px;
+    height: 96px;
+  }
+
+  .cart__empty > span {
+    font-size: 8px;
+  }
+
+  .cart__empty h3 {
+    font-size: 22px;
+  }
+
+  .cart__empty p {
+    max-width: 230px;
+
+    font-size: 10px;
+  }
+
+  .cart__continue--empty {
+    margin-top: 14px;
+
+    padding:
+      9px
+      17px;
+  }
+}
+
+/* =====================================================
+   IPHONE / SMALL MOBILE
+===================================================== */
+
+@media (max-width: 430px) {
+  .cart__drawer {
+    height: 93dvh;
+    max-height: 93dvh;
+  }
+
+  .cart__top {
+    padding:
+      18px
+      12px
+      11px;
+  }
+
+  .cart__top h2 {
+    font-size: 24px;
+  }
+
+  .cart__items {
+    padding:
+      9px
+      9px
+      7px;
+  }
+
+  .cart-item {
+    grid-template-columns:
+      78px
+      minmax(0, 1fr);
+
+    gap: 9px;
+
+    padding: 8px;
+  }
+
+  .cart-item__image {
+    width: 78px;
+    height: 78px;
+  }
+
+  .cart__note {
+    padding:
+      7px
+      10px
+      6px;
+  }
+
+  .cart__footer {
+    padding:
+      9px
+      10px
+      calc(
+        11px +
+        env(
+          safe-area-inset-bottom
+        )
+      );
+  }
+
+  .cart__whatsapp strong {
+    font-size: 11.5px;
+  }
+}
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+  .cart__drawer {
+    height: 94dvh;
+    max-height: 94dvh;
+  }
+
+  .cart__top h2 {
+    font-size: 22px;
+  }
+
+  .cart-item {
+    grid-template-columns:
+      72px
+      minmax(0, 1fr);
+  }
+
+  .cart-item__image {
+    width: 72px;
+    height: 72px;
+  }
+
+  .cart-item__heading h3 {
+    font-size: 11.5px;
+  }
+
+  .cart__whatsapp {
+    grid-template-columns:
+      34px
+      1fr
+      auto;
+  }
+
+  .cart__whatsapp-icon {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+
+
+/* =====================================================
+   CART MOBILE — ALTURA DINÁMICA
+===================================================== */
+
+@media (max-width: 520px) {
+  .cart__drawer {
+    height: auto;
+    max-height: 93dvh;
+
+    min-height: 0;
+  }
+
+  .cart__items {
+    flex: 0 1 auto;
+
+    max-height: 46dvh;
+
+    overflow-y: auto;
+  }
+
+  .cart__note,
+  .cart__footer,
+  .cart__top {
+    flex-shrink: 0;
+  }
+}
+
+/* IPHONE */
+
+@media (max-width: 430px) {
+  .cart__drawer {
+    height: auto;
+    max-height: 93dvh;
+  }
+
+  .cart__items {
+    max-height: 45dvh;
+  }
+}
+
+/* CELULAR PEQUEÑO */
+
+@media (max-width: 380px) {
+  .cart__drawer {
+    max-height: 94dvh;
+  }
+
+  .cart__items {
+    max-height: 42dvh;
   }
 }
