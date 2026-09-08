@@ -967,57 +967,534 @@
 @media (max-width: 650px) {
   .delivery {
     padding:
-      48px 0 38px;
+      42px 0
+      34px;
   }
 
   .delivery__container {
     width:
-      calc(100% - 24px);
+      calc(100% - 18px);
   }
 
+  /* =========================
+     HEADER MOBILE
+  ========================= */
+
   .delivery__header {
-    margin-bottom: 30px;
+    max-width: 360px;
+
+    margin:
+      0 auto
+      24px;
+  }
+
+  .delivery__eyebrow {
+    gap: 7px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.8px;
+  }
+
+  .delivery__eyebrow i {
+    width: 6px;
+    height: 6px;
   }
 
   .delivery__header h2 {
-    font-size: 38px;
+    max-width: 340px;
+
+    margin:
+      9px auto
+      0;
+
+    font-size: 36px;
+
+    line-height: 0.97;
 
     letter-spacing: -2px;
   }
 
-  .delivery__icon {
-    width: 105px;
-    height: 105px;
+  .delivery__header p {
+    max-width: 315px;
+
+    margin-top: 9px;
+
+    font-size: 11px;
+
+    line-height: 1.48;
   }
 
-  .delivery__icon svg {
-    width: 74px;
-    height: 74px;
+  /* =========================
+     RUTA MOBILE
+  ========================= */
+
+  .delivery__route {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .delivery__route-line {
+    display: none;
+  }
+
+  .delivery__step {
+    padding:
+      0
+      8px;
   }
 
   .delivery__number {
+    top: -6px;
+
     left:
-      calc(50% + 35px);
+      calc(50% + 31px);
+
+    min-width: 34px;
+
+    height: 23px;
+
+    padding:
+      0 8px;
+
+    border-width: 2px;
+
+    font-size: 7.5px;
+  }
+
+  .delivery__icon {
+    width: 92px;
+    height: 92px;
+
+    margin-bottom: 6px;
+
+    border-width: 1.5px;
+
+    box-shadow:
+      0 14px 30px
+      rgba(102, 69, 117, 0.075),
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.84);
+  }
+
+  .delivery__icon svg {
+    width: 65px;
+    height: 65px;
+  }
+
+  .delivery__step > small {
+    margin-top: 4px;
+
+    color: #8f7d95;
+
+    font-size: 7.8px;
+
+    letter-spacing: 0.85px;
+  }
+
+  .delivery__step h3 {
+    margin-top: 4px;
+
+    color: #3f2f47;
+
+    font-size: 20px;
+
+    line-height: 1.06;
+  }
+
+  .delivery__step > p {
+    max-width: 315px;
+
+    margin-top: 6px;
+
+    color: #675d6b;
+
+    font-size: 10.5px;
+    font-weight: 650;
+
+    line-height: 1.5;
+  }
+
+  /* =========================
+     MINI INFO / PAGOS
+  ========================= */
+
+  .delivery__mini-info,
+  .delivery__payments {
+    gap: 6px;
+
+    margin-top: 9px;
+  }
+
+  .delivery__mini-info span,
+  .delivery__payments span {
+    gap: 5px;
+
+    padding:
+      6px 9px;
+
+    color: #645969;
+
+    font-size: 7.2px;
+  }
+
+  .delivery__dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  /* =========================
+     TIEMPO
+  ========================= */
+
+  .delivery__time {
+    gap: 8px;
+
+    margin-top: 9px;
+
+    padding:
+      7px 12px;
+  }
+
+  .delivery__time strong {
+    font-size: 30px;
+  }
+
+  .delivery__time b {
+    font-size: 10px;
+  }
+
+  .delivery__time small {
+    font-size: 6px;
+  }
+
+  /* =========================
+     LOCATION BAR MOBILE
+  ========================= */
+
+  .delivery__location-bar {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    margin-top: 24px;
+
+    padding:
+      14px 14px;
+
+    border-radius:
+      25px 32px
+      23px 29px;
+  }
+
+  .delivery__separator {
+    width: 100%;
+
+    height: 1px;
   }
 
   .delivery__address {
-    align-items: flex-start;
+    align-items: center;
+
+    gap: 10px;
   }
 
   .delivery__address-icon {
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
 
-    flex-basis: 56px;
+    flex-basis: 52px;
+  }
+
+  .delivery__address-copy > small {
+    font-size: 7px;
+
+    letter-spacing: 0.85px;
   }
 
   .delivery__address-copy h3 {
-    font-size: 20px;
+    font-size: 19px;
+
+    line-height: 1.05;
+  }
+
+  .delivery__address-copy p {
+    margin-top: 4px;
+
+    font-size: 8px;
   }
 
   .delivery__local,
   .delivery__shipping {
-    align-items: flex-start;
+    align-items: center;
+
+    gap: 9px;
+  }
+
+  .delivery__local-icon {
+    width: 48px;
+    height: 42px;
+
+    flex-basis: 48px;
+  }
+
+  .delivery__shipping-symbol {
+    width: 38px;
+    height: 38px;
+
+    flex-basis: 38px;
+
+    border-width: 3px;
+  }
+
+  .delivery__shipping-symbol::after {
+    top: 15px;
+    left: 3px;
+
+    width: 27px;
+    height: 4px;
+  }
+
+  .delivery__shipping-symbol i {
+    top: 9px;
+    left: 9px;
+
+    width: 13px;
+    height: 13px;
+  }
+
+  .delivery__local small,
+  .delivery__shipping small {
+    font-size: 6.5px;
+
+    letter-spacing: 0.7px;
+  }
+
+  .delivery__local strong,
+  .delivery__shipping strong {
+    margin-top: 2px;
+
+    font-size: 12px;
+  }
+
+  .delivery__local p,
+  .delivery__shipping p {
+    margin-top: 2px;
+
+    font-size: 7px;
+  }
+
+  /* =========================
+     BOTTOM MOBILE
+  ========================= */
+
+  .delivery__bottom {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 9px;
+
+    margin-top: 12px;
+  }
+
+  .delivery__note {
+    justify-content: center;
+
+    gap: 7px;
+
+    font-size: 7.5px;
+
+    text-align: center;
+  }
+
+  .delivery__note > span {
+    width: 23px;
+    height: 23px;
+
+    flex-basis: 23px;
+
+    font-size: 9px;
+  }
+
+  .delivery__whatsapp {
+    width: 100%;
+
+    min-width: 0;
+
+    gap: 9px;
+
+    padding:
+      9px 11px;
+
+    border-radius:
+      19px 24px
+      17px 22px;
+  }
+
+  .delivery__whatsapp-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-basis: 36px;
+
+    border-radius:
+      12px 16px
+      11px 15px;
+  }
+
+  .delivery__whatsapp-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .delivery__whatsapp small {
+    font-size: 6px;
+  }
+
+  .delivery__whatsapp strong {
+    font-size: 9.5px;
+  }
+
+  /* =========================
+     BACKGROUND MOBILE
+  ========================= */
+
+  .delivery__glow--pink {
+    top: -110px;
+    left: -130px;
+
+    width: 320px;
+    height: 320px;
+  }
+
+  .delivery__glow--blue {
+    right: -145px;
+    bottom: -125px;
+
+    width: 340px;
+    height: 340px;
+  }
+}
+
+/* =====================================================
+   IPHONE
+===================================================== */
+
+@media (max-width: 430px) {
+  .delivery {
+    padding:
+      38px 0
+      30px;
+  }
+
+  .delivery__container {
+    width:
+      calc(100% - 16px);
+  }
+
+  .delivery__header {
+    margin-bottom: 21px;
+  }
+
+  .delivery__header h2 {
+    max-width: 325px;
+
+    font-size: 34px;
+  }
+
+  .delivery__header p {
+    max-width: 300px;
+
+    font-size: 10.5px;
+  }
+
+  .delivery__route {
+    gap: 18px;
+  }
+
+  .delivery__icon {
+    width: 88px;
+    height: 88px;
+  }
+
+  .delivery__icon svg {
+    width: 62px;
+    height: 62px;
+  }
+
+  .delivery__number {
+    left:
+      calc(50% + 29px);
+  }
+
+  .delivery__step h3 {
+    font-size: 19px;
+  }
+
+  .delivery__step > p {
+    max-width: 295px;
+
+    font-size: 10px;
+  }
+
+  .delivery__location-bar {
+    margin-top: 21px;
+
+    padding:
+      13px 13px;
+  }
+
+  .delivery__address-copy h3 {
+    font-size: 18px;
+  }
+}
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+  .delivery__header h2 {
+    max-width: 290px;
+
+    font-size: 31px;
+  }
+
+  .delivery__header p {
+    max-width: 275px;
+
+    font-size: 9.8px;
+  }
+
+  .delivery__icon {
+    width: 84px;
+    height: 84px;
+  }
+
+  .delivery__icon svg {
+    width: 59px;
+    height: 59px;
+  }
+
+  .delivery__step h3 {
+    font-size: 18px;
+  }
+
+  .delivery__step > p {
+    max-width: 275px;
+
+    font-size: 9.5px;
+  }
+
+  .delivery__payments span,
+  .delivery__mini-info span {
+    font-size: 6.8px;
+  }
+
+  .delivery__address-copy h3 {
+    font-size: 17px;
   }
 }
 
@@ -1025,5 +1502,283 @@
   .delivery__icon,
   .delivery__whatsapp {
     transition: none;
+  }
+}
+
+/* =====================================================
+   DELIVERY — BLOQUE FINAL CENTRADO EN MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+  .delivery__location-bar {
+    text-align: center;
+  }
+
+  .delivery__address,
+  .delivery__local,
+  .delivery__shipping {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  .delivery__address {
+    gap: 7px;
+  }
+
+  .delivery__local,
+  .delivery__shipping {
+    gap: 6px;
+  }
+
+  .delivery__address-copy,
+  .delivery__local > div,
+  .delivery__shipping > div {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .delivery__address-copy h3,
+  .delivery__address-copy p,
+  .delivery__address-copy > small,
+  .delivery__local small,
+  .delivery__local strong,
+  .delivery__local p,
+  .delivery__shipping small,
+  .delivery__shipping strong,
+  .delivery__shipping p {
+    text-align: center;
+  }
+
+  .delivery__separator {
+    margin:
+      2px auto;
+
+    width: 88%;
+  }
+
+  /* NOTA */
+
+  .delivery__note {
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    text-align: center;
+  }
+
+  .delivery__note > span {
+    margin: 0 auto;
+  }
+
+  /* WHATSAPP */
+
+  .delivery__whatsapp {
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  .delivery__whatsapp > span:last-child {
+    align-items: center;
+
+    text-align: center;
+  }
+}
+
+@media (max-width: 430px) {
+  .delivery__location-bar {
+    padding:
+      14px
+      12px;
+  }
+
+  .delivery__address-copy h3 {
+    font-size: 18px;
+  }
+
+  .delivery__local strong,
+  .delivery__shipping strong {
+    font-size: 12px;
+  }
+
+  .delivery__note {
+    font-size: 7.5px;
+  }
+}
+
+
+/* =====================================================
+   DELIVERY — ILUSTRACIONES MOBILE
+===================================================== */
+
+.delivery__mobile-art,
+.delivery__mobile-path {
+  display: none;
+}
+
+@media (max-width: 650px) {
+  .delivery__mobile-art,
+  .delivery__mobile-path {
+    display: block;
+
+    position: absolute;
+
+    z-index: 1;
+
+    pointer-events: none;
+  }
+
+  .delivery__mobile-art svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  /* REGALO */
+
+  .delivery__mobile-art--gift {
+    top: 235px;
+    left: -13px;
+
+    width: 88px;
+    height: 88px;
+
+    opacity: 0.55;
+
+    transform:
+      rotate(-8deg);
+  }
+
+  /* TARJETAS / MONEDA */
+
+  .delivery__mobile-art--money {
+    top: 470px;
+    right: -14px;
+
+    width: 90px;
+    height: 82px;
+
+    opacity: 0.5;
+
+    transform:
+      rotate(7deg);
+  }
+
+  /* RELOJ */
+
+  .delivery__mobile-art--clock {
+    top: 690px;
+    left: -15px;
+
+    width: 83px;
+    height: 83px;
+
+    opacity: 0.48;
+
+    transform:
+      rotate(-5deg);
+  }
+
+  /* CASITA + PAQUETE */
+
+  .delivery__mobile-art--home {
+    bottom: 150px;
+    right: -17px;
+
+    width: 92px;
+    height: 88px;
+
+    opacity: 0.48;
+
+    transform:
+      rotate(5deg);
+  }
+
+  /* CAMINITOS */
+
+  .delivery__mobile-path {
+    width: 112px;
+
+    color:
+      rgba(
+        164,
+        100,
+        213,
+        0.18
+      );
+  }
+
+  .delivery__mobile-path svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .delivery__mobile-path--one {
+    top: 390px;
+    left: 0;
+
+    transform:
+      rotate(-6deg);
+  }
+
+  .delivery__mobile-path--two {
+    top: 610px;
+    right: -5px;
+
+    color:
+      rgba(
+        74,
+        157,
+        234,
+        0.17
+      );
+
+    transform:
+      rotate(8deg);
+  }
+}
+
+/* =====================================================
+   IPHONE
+===================================================== */
+
+@media (max-width: 430px) {
+  .delivery__mobile-art--gift {
+    top: 225px;
+    left: -20px;
+
+    width: 82px;
+    height: 82px;
+  }
+
+  .delivery__mobile-art--money {
+    top: 455px;
+    right: -20px;
+
+    width: 84px;
+    height: 78px;
+  }
+
+  .delivery__mobile-art--clock {
+    top: 665px;
+    left: -20px;
+
+    width: 78px;
+    height: 78px;
+  }
+
+  .delivery__mobile-art--home {
+    right: -20px;
+
+    width: 85px;
+    height: 82px;
   }
 }

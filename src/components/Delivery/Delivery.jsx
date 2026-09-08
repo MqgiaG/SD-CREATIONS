@@ -166,13 +166,320 @@ function ScooterIcon() {
   )
 }
 
-const payments = ['Tarjeta', 'Transferencia', 'Depósito', 'Efectivo']
+/* =====================================================
+   DECORACIONES MOBILE
+===================================================== */
+
+function GiftDoodle() {
+  return (
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="giftDoodleBox" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#ff9dca" />
+          <stop offset="100%" stopColor="#ff5aa8" />
+        </linearGradient>
+      </defs>
+
+      <ellipse
+        cx="60"
+        cy="103"
+        rx="38"
+        ry="7"
+        fill="rgba(94,58,110,.08)"
+      />
+
+      <rect
+        x="26"
+        y="47"
+        width="68"
+        height="51"
+        rx="13"
+        fill="url(#giftDoodleBox)"
+        stroke="#fff"
+        strokeWidth="4"
+      />
+
+      <rect
+        x="21"
+        y="39"
+        width="78"
+        height="19"
+        rx="10"
+        fill="#ffc2dd"
+        stroke="#fff"
+        strokeWidth="4"
+      />
+
+      <rect
+        x="53"
+        y="41"
+        width="14"
+        height="57"
+        rx="6"
+        fill="#8b66e9"
+      />
+
+      <path
+        d="M60 40C46 24 33 25 34 34c1 8 13 10 26 6Z"
+        fill="#a77aef"
+        stroke="#fff"
+        strokeWidth="3"
+      />
+
+      <path
+        d="M60 40c14-16 27-15 26-6-1 8-13 10-26 6Z"
+        fill="#6eaef3"
+        stroke="#fff"
+        strokeWidth="3"
+      />
+
+      <circle cx="48" cy="71" r="3.5" fill="#513b59" />
+      <circle cx="72" cy="71" r="3.5" fill="#513b59" />
+
+      <path
+        d="M52 82c5 5 11 5 16 0"
+        fill="none"
+        stroke="#513b59"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+function MoneyDoodle() {
+  return (
+    <svg viewBox="0 0 125 110" aria-hidden="true">
+      <ellipse
+        cx="62"
+        cy="96"
+        rx="37"
+        ry="7"
+        fill="rgba(94,58,110,.07)"
+      />
+
+      <rect
+        x="17"
+        y="31"
+        width="73"
+        height="46"
+        rx="13"
+        fill="#9671ed"
+        stroke="#fff"
+        strokeWidth="4"
+        transform="rotate(-7 17 31)"
+      />
+
+      <rect
+        x="28"
+        y="42"
+        width="73"
+        height="46"
+        rx="13"
+        fill="#ff72b7"
+        stroke="#fff"
+        strokeWidth="4"
+        transform="rotate(5 28 42)"
+      />
+
+      <rect
+        x="39"
+        y="52"
+        width="34"
+        height="5"
+        rx="3"
+        fill="#fff"
+        opacity=".5"
+      />
+
+      <circle
+        cx="93"
+        cy="74"
+        r="17"
+        fill="#ffd45b"
+        stroke="#fff"
+        strokeWidth="4"
+      />
+
+      <text
+        x="93"
+        y="80"
+        textAnchor="middle"
+        fontSize="18"
+        fontWeight="900"
+        fill="#b87921"
+      >
+        $
+      </text>
+    </svg>
+  )
+}
+
+function MiniClockDoodle() {
+  return (
+    <svg viewBox="0 0 110 110" aria-hidden="true">
+      <ellipse
+        cx="55"
+        cy="96"
+        rx="33"
+        ry="6"
+        fill="rgba(94,58,110,.07)"
+      />
+
+      <circle
+        cx="55"
+        cy="54"
+        r="35"
+        fill="#dff3ff"
+        stroke="#fff"
+        strokeWidth="5"
+      />
+
+      <circle
+        cx="55"
+        cy="54"
+        r="26"
+        fill="#fff"
+        stroke="#67a9ef"
+        strokeWidth="4"
+      />
+
+      <path
+        d="M55 38v18l12 7"
+        fill="none"
+        stroke="#7d63e6"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+
+      <circle cx="55" cy="55" r="4" fill="#ff5ea9" />
+
+      <path
+        d="m35 20-9-9M75 20l9-9"
+        stroke="#ff6eaf"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+function HomePackageDoodle() {
+  return (
+    <svg viewBox="0 0 130 120" aria-hidden="true">
+      <ellipse
+        cx="65"
+        cy="105"
+        rx="43"
+        ry="7"
+        fill="rgba(94,58,110,.07)"
+      />
+
+      <path
+        d="M27 59 65 27l38 32v39H27V59Z"
+        fill="#dff1ff"
+        stroke="#fff"
+        strokeWidth="5"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="m20 62 45-39 45 39"
+        fill="none"
+        stroke="#ff6dae"
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <rect
+        x="51"
+        y="67"
+        width="28"
+        height="31"
+        rx="7"
+        fill="#9470e9"
+      />
+
+      <rect
+        x="82"
+        y="75"
+        width="31"
+        height="24"
+        rx="6"
+        fill="#ffd15d"
+        stroke="#fff"
+        strokeWidth="4"
+      />
+
+      <path
+        d="M97 76v23M83 86h30"
+        stroke="#ff7aaf"
+        strokeWidth="4"
+      />
+    </svg>
+  )
+}
+
+const payments = [
+  'Tarjeta',
+  'Transferencia',
+  'Depósito',
+  'Efectivo',
+]
 
 function Delivery() {
   return (
-    <section className="delivery" id="entregas">
+    <section
+      className="delivery"
+      id="entregas"
+    >
       <div className="delivery__glow delivery__glow--pink" />
       <div className="delivery__glow delivery__glow--blue" />
+
+      {/* DECORACIONES MOBILE */}
+
+      <div className="delivery__mobile-art delivery__mobile-art--gift">
+        <GiftDoodle />
+      </div>
+
+      <div className="delivery__mobile-art delivery__mobile-art--money">
+        <MoneyDoodle />
+      </div>
+
+      <div className="delivery__mobile-art delivery__mobile-art--clock">
+        <MiniClockDoodle />
+      </div>
+
+      <div className="delivery__mobile-art delivery__mobile-art--home">
+        <HomePackageDoodle />
+      </div>
+
+      <div className="delivery__mobile-path delivery__mobile-path--one">
+        <svg viewBox="0 0 120 70" aria-hidden="true">
+          <path
+            d="M7 54C38 8 75 8 112 38"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeDasharray="7 9"
+          />
+        </svg>
+      </div>
+
+      <div className="delivery__mobile-path delivery__mobile-path--two">
+        <svg viewBox="0 0 120 70" aria-hidden="true">
+          <path
+            d="M8 18c31 43 70 45 105 9"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeDasharray="7 9"
+          />
+        </svg>
+      </div>
 
       <div className="delivery__container">
         <header className="delivery__header">
@@ -183,87 +490,134 @@ function Delivery() {
           </span>
 
           <h2>
-            Así llega tu idea <span>hasta tus manos.</span>
+            Así llega tu idea{' '}
+            <span>
+              hasta tus manos.
+            </span>
           </h2>
 
           <p>
-            Recibe, paga y disfruta. Así de sencillo.
+            Recibe, paga y disfruta.
+            Así de sencillo.
           </p>
         </header>
 
         <div className="delivery__route">
-          <div className="delivery__route-line" aria-hidden="true">
+          <div
+            className="delivery__route-line"
+            aria-hidden="true"
+          >
             <span />
             <span />
           </div>
 
           <article className="delivery__step delivery__step--pink">
-            <span className="delivery__number">01</span>
+            <span className="delivery__number">
+              01
+            </span>
 
             <div className="delivery__icon">
               <PickupIcon />
             </div>
 
-            <small>Entrega</small>
+            <small>
+              Entrega
+            </small>
 
-            <h3>Tú decides cómo</h3>
+            <h3>
+              Tú decides cómo
+            </h3>
 
             <p>
-              Recoge con nosotros o pide entrega local a domicilio.
+              Recoge con nosotros o pide
+              entrega local a domicilio.
             </p>
 
             <div className="delivery__mini-info">
-              <span>Recoge aquí</span>
-              <span>Domicilio desde $100</span>
+              <span>
+                Recoge aquí
+              </span>
+
+              <span>
+                Domicilio desde $100
+              </span>
             </div>
           </article>
 
           <article className="delivery__step delivery__step--purple">
-            <span className="delivery__number">02</span>
+            <span className="delivery__number">
+              02
+            </span>
 
             <div className="delivery__icon">
               <PaymentIcon />
             </div>
 
-            <small>Formas de pago</small>
+            <small>
+              Formas de pago
+            </small>
 
-            <h3>Paga como prefieras</h3>
+            <h3>
+              Paga como prefieras
+            </h3>
 
             <p>
-              Elige la opción que más te convenga al confirmar.
+              Elige la opción que más te
+              convenga al confirmar.
             </p>
 
             <div className="delivery__payments">
-              {payments.map((payment, index) => (
-                <span key={payment}>
-                  <i className={`delivery__dot delivery__dot--${index + 1}`} />
-                  {payment}
-                </span>
-              ))}
+              {payments.map(
+                (payment, index) => (
+                  <span key={payment}>
+                    <i
+                      className={`delivery__dot delivery__dot--${
+                        index + 1
+                      }`}
+                    />
+
+                    {payment}
+                  </span>
+                )
+              )}
             </div>
           </article>
 
           <article className="delivery__step delivery__step--blue">
-            <span className="delivery__number">03</span>
+            <span className="delivery__number">
+              03
+            </span>
 
             <div className="delivery__icon">
               <ClockIcon />
             </div>
 
-            <small>Tiempo</small>
+            <small>
+              Tiempo
+            </small>
 
-            <h3>Lo hacemos con cariño</h3>
+            <h3>
+              Lo hacemos con cariño
+            </h3>
 
             <p>
-              La mayoría de personalizados pueden estar listos en:
+              La mayoría de personalizados
+              pueden estar listos en:
             </p>
 
             <div className="delivery__time">
-              <strong>1</strong>
+              <strong>
+                1
+              </strong>
 
               <span>
-                <b>DÍA</b>
-                <small>aproximadamente</small>
+                <b>
+                  DÍA
+                </b>
+
+                <small>
+                  aproximadamente
+                </small>
               </span>
             </div>
           </article>
@@ -276,16 +630,21 @@ function Delivery() {
             </div>
 
             <div className="delivery__address-copy">
-              <small>Nuestro domicilio</small>
+              <small>
+                Nuestro domicilio
+              </small>
 
               <h3>
                 Mina 207
-                <span>·</span>
+                <span>
+                  ·
+                </span>
                 San Felipe, Gto.
               </h3>
 
               <p>
-                Aquí puedes recoger directamente tu pedido.
+                Aquí puedes recoger
+                directamente tu pedido.
               </p>
             </div>
           </div>
@@ -298,9 +657,17 @@ function Delivery() {
             </div>
 
             <div>
-              <small>Entrega local</small>
-              <strong>Desde $100</strong>
-              <p>Hasta la puerta de tu casa.</p>
+              <small>
+                Entrega local
+              </small>
+
+              <strong>
+                Desde $100
+              </strong>
+
+              <p>
+                Hasta la puerta de tu casa.
+              </p>
             </div>
           </div>
 
@@ -312,17 +679,30 @@ function Delivery() {
             </span>
 
             <div>
-              <small>Importante</small>
-              <strong>No manejamos envíos</strong>
-              <p>Solo entrega local por ahora.</p>
+              <small>
+                Importante
+              </small>
+
+              <strong>
+                No manejamos envíos
+              </strong>
+
+              <p>
+                Solo entrega local por ahora.
+              </p>
             </div>
           </div>
         </div>
 
         <div className="delivery__bottom">
           <p className="delivery__note">
-            <span>!</span>
-            Disponibilidad y tiempo final se confirman contigo antes de elaborar tu pedido.
+            <span>
+              !
+            </span>
+
+            Disponibilidad y tiempo final se
+            confirman contigo antes de
+            elaborar tu pedido.
           </p>
 
           <a
@@ -332,7 +712,10 @@ function Delivery() {
             className="delivery__whatsapp"
           >
             <span className="delivery__whatsapp-icon">
-              <svg viewBox="0 0 32 32" aria-hidden="true">
+              <svg
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+              >
                 <path
                   d="M16 4.5A11.3 11.3 0 0 0 6.4 22l-1.5 5 5.2-1.3A11.4 11.4 0 1 0 16 4.5Z"
                   fill="none"
@@ -350,8 +733,13 @@ function Delivery() {
             </span>
 
             <span>
-              <small>¿Tienes alguna duda?</small>
-              <strong>Pregúntanos por WhatsApp</strong>
+              <small>
+                ¿Tienes alguna duda?
+              </small>
+
+              <strong>
+                Pregúntanos por WhatsApp
+              </strong>
             </span>
           </a>
         </div>

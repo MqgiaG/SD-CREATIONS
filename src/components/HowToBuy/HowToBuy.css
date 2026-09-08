@@ -691,52 +691,458 @@
 
 @media (max-width: 650px) {
   .howtobuy {
-    padding: 62px 0 44px;
+    padding:
+      38px 0
+      34px;
   }
 
   .howtobuy__container {
-    width: calc(100% - 24px);
+    width:
+      calc(
+        100% - 16px
+      );
   }
 
+  /* =========================
+     HEADER MOBILE
+  ========================= */
+
   .howtobuy__header {
-    margin-bottom: 28px;
+    max-width: 360px;
+
+    margin:
+      0 auto
+      18px;
+  }
+
+  .howtobuy__eyebrow {
+    gap: 7px;
+
+    padding:
+      6px 11px;
+
+    font-size: 8.5px;
+
+    letter-spacing: 0.55px;
+  }
+
+  .howtobuy__eyebrow span {
+    width: 5px;
+    height: 5px;
   }
 
   .howtobuy__header h2 {
-    font-size: 39px;
-    letter-spacing: -2px;
+    margin-top: 12px;
+
+    font-size: 34px;
+
+    line-height: 0.96;
+
+    letter-spacing: -1.8px;
   }
 
   .howtobuy__header p {
-    font-size: 12px;
+    max-width: 320px;
+
+    margin-top: 10px;
+
+    font-size: 10px;
+
+    line-height: 1.48;
   }
+
+  /* =========================
+     STEPS MOBILE
+  ========================= */
 
   .howtobuy__steps {
     grid-template-columns: 1fr;
-    gap: 14px;
+
+    gap: 10px;
+  }
+
+  .howtobuy__route {
+    display: none;
   }
 
   .howtobuy__card {
-    min-height: auto;
-    padding: 18px 16px;
+    min-height: 0;
+
+    padding:
+      14px
+      13px
+      13px;
+
+    border-radius:
+      24px 19px
+      27px 21px !important;
+  }
+
+  .howtobuy__card:hover {
+    transform:
+      translateY(-3px);
   }
 
   .howtobuy__card-top {
-    min-height: 78px;
+    min-height: 58px;
+
+    gap: 9px;
+  }
+
+  .howtobuy__number {
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 40px;
+
+    border-width: 2px;
+
+    border-radius:
+      13px 17px
+      12px 16px;
+
+    font-size: 11px;
   }
 
   .howtobuy__icon {
-    width: 74px;
-    height: 74px;
+    width: 54px;
+    height: 54px;
+
+    padding: 5px;
+
+    border-radius:
+      18px 22px
+      16px 20px;
   }
 
   .howtobuy__icon svg {
-    width: 54px;
-    height: 54px;
+    width: 39px;
+    height: 39px;
   }
+
+  .howtobuy__card small {
+    margin:
+      1px 0 4px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.75px;
+  }
+
+  .howtobuy__card h3 {
+    font-size: 17px;
+
+    line-height: 1.08;
+
+    letter-spacing: -0.45px;
+  }
+
+  .howtobuy__card > p {
+    margin:
+      7px 0 10px;
+
+    font-size: 9.5px;
+
+    line-height: 1.48;
+  }
+
+  .howtobuy__label {
+    min-height: 34px;
+
+    gap: 7px;
+
+    padding:
+      6px 9px;
+
+    border-radius:
+      14px 18px
+      13px 17px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.4px;
+  }
+
+  .howtobuy__label > span {
+    width: 7px;
+    height: 7px;
+
+    flex: 0 0 7px;
+  }
+
+  /* =========================
+     BOTTOM MOBILE
+  ========================= */
+
+  .howtobuy__bottom {
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+
+    margin-top: 12px;
+  }
+
+  .howtobuy__tip {
+    min-height: 0;
+
+    gap: 9px;
+
+    padding:
+      9px 11px;
+
+    border-radius:
+      17px 22px
+      16px 20px;
+  }
+
+  .howtobuy__tip-mark {
+    width: 36px;
+    height: 36px;
+
+    flex: 0 0 36px;
+
+    border-width: 2px;
+
+    border-radius:
+      12px 16px
+      11px 15px;
+  }
+
+  .howtobuy__tip-mark span:nth-child(1) {
+    top: 8px;
+
+    height: 10px;
+  }
+
+  .howtobuy__tip-mark span:nth-child(2) {
+    top: 21px;
+
+    height: 4px;
+  }
+
+  .howtobuy__tip-mark span:nth-child(3) {
+    top: 27px;
+
+    height: 3px;
+  }
+
+  .howtobuy__tip p {
+    font-size: 8.5px;
+
+    line-height: 1.45;
+  }
+
+  .howtobuy__tip strong {
+    font-size: 9.5px;
+  }
+
+  .howtobuy__cta {
+    width: 100%;
+    min-width: 0;
+
+    gap: 9px;
+
+    padding:
+      8px 10px;
+
+    border-width: 2px;
+
+    border-radius:
+      18px 23px
+      17px 21px;
+  }
+
+  .howtobuy__cta-mark {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    border-radius:
+      13px 17px
+      12px 16px;
+  }
+
+  .howtobuy__cta small {
+    font-size: 6px;
+  }
+
+  .howtobuy__cta strong {
+    font-size: 10px;
+  }
+
+  .howtobuy__cta > i {
+    width: 25px;
+    height: 25px;
+  }
+
+  .howtobuy__cta > i::before {
+    top: 6px;
+
+    height: 12px;
+  }
+
+  .howtobuy__cta > i::after {
+    top: 12px;
+
+    width: 12px;
+  }
+
+  /* =========================
+     DECORACIONES MOBILE
+  ========================= */
 
   .howtobuy__bubble {
     display: none;
+  }
+
+  .howtobuy__glow--pink {
+    top: -90px;
+    left: -120px;
+
+    width: 280px;
+    height: 280px;
+  }
+
+  .howtobuy__glow--blue {
+    right: -130px;
+    bottom: -100px;
+
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* =========================
+   IPHONE
+========================= */
+
+@media (max-width: 430px) {
+  .howtobuy {
+    padding:
+      34px 0
+      30px;
+  }
+
+  .howtobuy__container {
+    width:
+      calc(
+        100% - 14px
+      );
+  }
+
+  .howtobuy__header {
+    margin-bottom: 16px;
+  }
+
+  .howtobuy__header h2 {
+    font-size: 32px;
+  }
+
+  .howtobuy__header p {
+    max-width: 300px;
+
+    font-size: 9.5px;
+  }
+
+  .howtobuy__steps {
+    gap: 9px;
+  }
+
+  .howtobuy__card {
+    padding:
+      13px
+      12px
+      12px;
+  }
+
+  .howtobuy__card-top {
+    min-height: 54px;
+  }
+
+  .howtobuy__number {
+    width: 38px;
+    height: 38px;
+
+    flex-basis: 38px;
+  }
+
+  .howtobuy__icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .howtobuy__icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .howtobuy__card h3 {
+    font-size: 16.5px;
+  }
+
+  .howtobuy__card > p {
+    font-size: 9px;
+  }
+
+  .howtobuy__label {
+    min-height: 32px;
+
+    font-size: 6.8px;
+  }
+}
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+  .howtobuy__header h2 {
+    font-size: 29px;
+  }
+
+  .howtobuy__header p {
+    max-width: 275px;
+
+    font-size: 9px;
+  }
+
+  .howtobuy__card {
+    padding:
+      12px
+      11px
+      11px;
+  }
+
+  .howtobuy__number {
+    width: 36px;
+    height: 36px;
+
+    flex-basis: 36px;
+
+    font-size: 10px;
+  }
+
+  .howtobuy__icon {
+    width: 47px;
+    height: 47px;
+  }
+
+  .howtobuy__icon svg {
+    width: 33px;
+    height: 33px;
+  }
+
+  .howtobuy__card h3 {
+    font-size: 15.5px;
+  }
+
+  .howtobuy__card > p {
+    font-size: 8.5px;
+  }
+
+  .howtobuy__label {
+    font-size: 6.5px;
   }
 }
 
@@ -745,5 +1151,241 @@
   .howtobuy__icon,
   .howtobuy__cta {
     transition: none;
+  }
+}
+
+
+/* =====================================================
+   HOW TO BUY — TEXTO MOBILE MÁS VISIBLE
+===================================================== */
+
+@media (max-width: 650px) {
+  .howtobuy__card {
+    text-align: center;
+  }
+
+  /* EXPLORA / IMAGINA / VISUALIZA / CONFIRMA */
+
+  .howtobuy__card small {
+    margin:
+      3px auto
+      5px;
+
+    color: #8c7893;
+
+    font-size: 7.8px;
+    font-weight: 900;
+
+    letter-spacing: 0.8px;
+
+    text-align: center;
+  }
+
+  /* TÍTULO DEL PASO */
+
+  .howtobuy__card h3 {
+    color: #3f2d47;
+
+    font-size: 18.5px;
+    font-weight: 900;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.55px;
+
+    text-align: center;
+  }
+
+  /* DESCRIPCIÓN */
+
+  .howtobuy__card > p {
+    max-width: 310px;
+
+    margin:
+      8px auto
+      11px;
+
+    color: #65596a;
+
+    font-size: 10.5px;
+    font-weight: 650;
+
+    line-height: 1.5;
+
+    text-align: center;
+  }
+
+  /* BOTONCITO / ETIQUETA DE ABAJO */
+
+  .howtobuy__label {
+    justify-content: center;
+
+    min-height: 35px;
+
+    font-size: 7.5px;
+    font-weight: 900;
+
+    text-align: center;
+  }
+
+  .howtobuy__label > span {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+/* =====================================================
+   IPHONE
+===================================================== */
+
+@media (max-width: 430px) {
+  .howtobuy__card h3 {
+    font-size: 18px;
+  }
+
+  .howtobuy__card > p {
+    max-width: 295px;
+
+    font-size: 10px;
+  }
+
+  .howtobuy__card small {
+    font-size: 7.4px;
+  }
+
+  .howtobuy__label {
+    font-size: 7.2px;
+  }
+}
+
+/* =====================================================
+   HOW TO BUY — ETIQUETAS SUPERIORES MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+  .howtobuy__card {
+    position: relative;
+
+    padding-top: 14px;
+  }
+
+  /* EXPLORA / IMAGINA / VISUALIZA / CONFIRMA */
+
+  .howtobuy__card small {
+    position: absolute;
+
+    top: 17px;
+    left: 50%;
+
+    z-index: 4;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content;
+
+    margin: 0;
+
+    padding:
+      5px
+      10px;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.8);
+
+    border-radius: 999px;
+
+    color: #754778;
+
+    background:
+      rgba(255, 255, 255, 0.72);
+
+    box-shadow:
+      0 7px 16px
+      rgba(92, 57, 104, 0.07);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    font-size: 8px;
+    font-weight: 950;
+
+    line-height: 1;
+
+    letter-spacing: 0.9px;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    transform:
+      translateX(-50%);
+  }
+
+  /* COLORES SEGÚN EL PASO */
+
+  .howtobuy__card--pink small {
+    color: #d73c8c;
+
+    background:
+      rgba(255, 239, 247, 0.9);
+  }
+
+  .howtobuy__card--purple small {
+    color: #7f4cc6;
+
+    background:
+      rgba(245, 238, 255, 0.9);
+  }
+
+  .howtobuy__card--blue small {
+    color: #3788ce;
+
+    background:
+      rgba(237, 248, 255, 0.92);
+  }
+
+  .howtobuy__card--yellow small {
+    color: #cc8b17;
+
+    background:
+      rgba(255, 248, 224, 0.94);
+  }
+
+  /* NÚMERO E ÍCONO SIGUEN EN LAS ESQUINAS */
+
+  .howtobuy__card-top {
+    position: relative;
+
+    min-height: 52px;
+  }
+
+  /* TÍTULO MÁS CERCA DEL ENCABEZADO */
+
+  .howtobuy__card h3 {
+    margin-top: 1px;
+  }
+}
+
+/* =====================================================
+   IPHONE
+===================================================== */
+
+@media (max-width: 430px) {
+  .howtobuy__card small {
+    top: 16px;
+
+    padding:
+      5px
+      9px;
+
+    font-size: 7.7px;
+
+    letter-spacing: 0.8px;
+  }
+
+  .howtobuy__card-top {
+    min-height: 50px;
   }
 }

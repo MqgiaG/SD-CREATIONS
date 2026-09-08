@@ -722,54 +722,175 @@
 
 @media (max-width: 680px) {
   .contact {
-    padding: 32px 0 22px;
+    padding:
+      30px 0
+      22px;
   }
 
   .contact__container {
-    width: calc(100% - 22px);
+    width:
+      calc(100% - 16px);
+  }
+
+  /* =========================
+     HEADER MOBILE
+  ========================= */
+
+  .contact__header {
+    max-width: 350px;
+  }
+
+  .contact__eyebrow {
+    gap: 7px;
+
+    margin-bottom: 7px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.9px;
+  }
+
+  .contact__eyebrow i {
+    width: 5px;
+    height: 5px;
   }
 
   .contact__header h2 {
-    font-size: 40px;
-    letter-spacing: -2px;
+    font-size: 38px;
+
+    line-height: 0.95;
+
+    letter-spacing: -1.9px;
+  }
+
+  .contact__header h2 span {
+    margin-top: 4px;
   }
 
   .contact__header > p {
-    font-size: 14px;
+    max-width: 325px;
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    line-height: 1.45;
   }
 
+  /* =========================
+     BENEFICIOS MOBILE
+  ========================= */
+
   .contact__benefits {
-    gap: 8px;
+    gap: 7px;
+
+    margin-top: 14px;
   }
 
   .contact__benefit {
-    min-height: 42px;
-    padding: 6px 10px 6px 7px;
+    min-height: 44px;
+
+    gap: 7px;
+
+    padding:
+      6px
+      11px
+      6px
+      7px;
   }
 
   .contact__benefit-symbol {
-    width: 28px;
-    height: 28px;
-    flex-basis: 28px;
+    width: 29px;
+    height: 29px;
+
+    flex-basis: 29px;
+
     font-size: 12px;
   }
 
   .contact__benefit strong {
-    font-size: 10px;
+    font-size: 10.5px;
+  }
+
+  /* =========================
+     WHATSAPP MOBILE
+  ========================= */
+
+  .contact__whatsapp {
+    grid-template-columns:
+      42px
+      auto
+      26px;
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+    padding:
+      7px
+      10px
+      7px
+      8px;
+
+    border-radius:
+      18px 24px
+      17px 22px;
+  }
+
+  .contact__whatsapp-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius:
+      13px 17px
+      12px 16px;
+  }
+
+  .contact__whatsapp-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact__whatsapp-copy small {
+    font-size: 7px;
+
+    letter-spacing: 0.8px;
   }
 
   .contact__whatsapp-copy strong {
-    font-size: 17px;
+    font-size: 16px;
+  }
+
+  .contact__whatsapp-chevron {
+    width: 26px;
+    height: 26px;
+  }
+
+  .contact__whatsapp-message {
+    margin-top: 6px;
+
+    font-size: 10px;
+  }
+
+  /* =========================
+     ILUSTRACIONES MOBILE
+  ========================= */
+
+  .contact__gift,
+  .contact__balloons {
+    width: 88px;
+
+    opacity: 0.24;
   }
 
   .contact__gift {
-    top: 190px;
-    left: -56px;
+    top: 165px;
+    left: -38px;
   }
 
   .contact__balloons {
-    top: 145px;
-    right: -64px;
+    top: 132px;
+    right: -42px;
   }
 
   .contact__mug,
@@ -782,38 +903,103 @@
     display: none;
   }
 
+  /* =========================
+     DOMICILIO MOBILE
+  ========================= */
+
   .contact__location {
-    padding: 16px 12px 14px;
+    max-width: 350px;
+
+    margin-top: 16px;
+
+    padding:
+      14px
+      12px
+      12px;
   }
 
   .contact__location::before {
-    inset: 8px -2px 2px;
-    border-radius: 27px;
+    inset:
+      5px
+      -1px
+      1px;
+
+    border-radius:
+      25px 31px
+      23px 29px;
   }
 
   .contact__location-swoosh {
     display: none;
   }
 
+  .contact__pin {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 4px;
+  }
+
   .contact__location > small {
-    font-size: 10px;
+    font-size: 8px;
+
+    letter-spacing: 1px;
   }
 
   .contact__location h3 {
+    gap: 7px;
+
+    margin-top: 4px;
+
     font-size: 24px;
+
+    line-height: 1.05;
+  }
+
+  .contact__location h3 i {
+    width: 6px;
+    height: 6px;
+
+    flex-basis: 6px;
   }
 
   .contact__location > p {
-    font-size: 13px;
+    margin-top: 6px;
+
+    font-size: 11px;
+  }
+
+  .contact__location-info {
+    gap: 6px;
+
+    margin-top: 9px;
   }
 
   .contact__location-info span {
-    font-size: 10px;
+    gap: 6px;
+
+    padding:
+      6px
+      9px;
+
+    font-size: 9px;
   }
+
+  .contact__location-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* =========================
+     REDES MOBILE
+  ========================= */
 
   .contact__social {
     flex-direction: column;
-    gap: 8px;
+
+    gap: 7px;
+
+    margin-top: 13px;
   }
 
   .contact__social-line {
@@ -821,20 +1007,152 @@
   }
 
   .contact__social > p {
-    font-size: 11px;
+    font-size: 9.5px;
   }
 
   .contact__social-links {
     flex-wrap: wrap;
+
     justify-content: center;
+
+    gap: 6px;
   }
 
   .contact__social-links a {
-    font-size: 10px;
+    min-height: 38px;
+
+    gap: 6px;
+
+    padding:
+      5px
+      10px
+      5px
+      6px;
+
+    font-size: 9.5px;
+  }
+
+  .contact__social-links svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact__group-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact__group-icon svg {
+    width: 21px;
+    height: 21px;
   }
 
   .contact__closing {
+    margin-top: 10px;
+
+    font-size: 9px;
+  }
+}
+
+/* =========================
+   IPHONE
+========================= */
+
+@media (max-width: 430px) {
+  .contact {
+    padding:
+      28px 0
+      20px;
+  }
+
+  .contact__container {
+    width:
+      calc(100% - 14px);
+  }
+
+  .contact__header h2 {
+    font-size: 36px;
+  }
+
+  .contact__header > p {
+    max-width: 310px;
+
+    font-size: 11.5px;
+  }
+
+  .contact__benefits {
+    max-width: 330px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact__benefit {
+    min-height: 42px;
+  }
+
+  .contact__benefit strong {
     font-size: 10px;
+  }
+
+  .contact__whatsapp {
+    margin-top: 14px;
+  }
+
+  .contact__location {
+    max-width: 330px;
+
+    margin-top: 15px;
+  }
+
+  .contact__location h3 {
+    font-size: 23px;
+  }
+
+  .contact__location > p {
+    max-width: 290px;
+
+    font-size: 10.5px;
+  }
+
+  .contact__social-links a {
+    min-height: 37px;
+  }
+}
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+  .contact__header h2 {
+    font-size: 33px;
+  }
+
+  .contact__header > p {
+    max-width: 285px;
+
+    font-size: 11px;
+  }
+
+  .contact__benefit strong {
+    font-size: 9.5px;
+  }
+
+  .contact__whatsapp-copy strong {
+    font-size: 15px;
+  }
+
+  .contact__location h3 {
+    font-size: 21px;
+  }
+
+  .contact__location-info span {
+    font-size: 8.5px;
+  }
+
+  .contact__social-links a {
+    font-size: 9px;
   }
 }
 

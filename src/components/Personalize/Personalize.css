@@ -3085,47 +3085,90 @@
 @media (max-width: 650px) {
   .personalize {
     padding:
-      62px 0 68px;
+      42px 0
+      54px;
   }
 
   .personalize__container {
     width:
-      calc(100% - 24px);
+      calc(100% - 16px);
   }
 
   .personalize__hero {
     align-items: flex-start;
     flex-direction: column;
 
-    gap: 16px;
+    gap: 9px;
 
-    margin-bottom: 21px;
+    margin-bottom: 14px;
 
     padding:
-      0 4px;
+      0 2px;
+  }
+
+  .personalize__eyebrow {
+    gap: 6px;
+
+    margin-bottom: 6px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.7px;
   }
 
   .personalize__hero h2 {
-    font-size: 40px;
+    max-width: 340px;
 
-    letter-spacing: -2.2px;
+    font-size: 35px;
+
+    line-height: 0.96;
+
+    letter-spacing: -1.9px;
   }
 
   .personalize__hero p {
-    font-size: 12px;
+    max-width: 330px;
+
+    margin-top: 9px;
+
+    font-size: 10.5px;
+
+    line-height: 1.45;
   }
 
   .personalize__hero-note {
     max-width: none;
 
+    gap: 7px;
+
     padding:
-      9px 12px;
+      7px 10px;
+
+    border-radius:
+      17px 23px
+      16px 21px;
+
+    transform: none;
+  }
+
+  .personalize__hero-note span {
+    font-size: 18px;
+  }
+
+  .personalize__hero-note strong {
+    font-size: 9px;
+  }
+
+  .personalize__workspace {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
   }
 
   .personalize__builder,
   .personalize__result {
     padding:
-      18px 14px;
+      14px 12px;
 
     background:
       linear-gradient(
@@ -3137,24 +3180,72 @@
     backdrop-filter:
       blur(17px)
       saturate(135%);
+
+    -webkit-backdrop-filter:
+      blur(17px)
+      saturate(135%);
+  }
+
+  .personalize__builder::before,
+  .personalize__result::before {
+    inset: 8px;
   }
 
   .personalize__builder {
     border-radius:
-      31px 24px 34px 26px;
+      27px 21px
+      30px 23px;
   }
 
   .personalize__result {
+    position: relative;
+
+    top: auto;
+
     border-radius:
-      29px 36px 26px 33px;
+      26px 32px
+      23px 29px;
+  }
+
+  .personalize__block + .personalize__block {
+    margin-top: 16px;
+
+    padding-top: 14px;
   }
 
   .personalize__block-header {
-    align-items: flex-start;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 11px;
+  }
+
+  .personalize__step-number {
+    width: 36px;
+    height: 36px;
+
+    flex: 0 0 36px;
+
+    border-width: 2px;
+
+    border-radius:
+      12px 16px
+      11px 15px;
+
+    font-size: 11px;
   }
 
   .personalize__block-header h3 {
-    font-size: 19px;
+    font-size: 17px;
+
+    letter-spacing: -0.6px;
+  }
+
+  .personalize__block-header p {
+    margin-top: 1px;
+
+    font-size: 7.5px;
   }
 
   .personalize__current {
@@ -3167,42 +3258,407 @@
         2,
         minmax(0, 1fr)
       );
+
+    gap: 7px;
   }
 
   .personalize__product {
-    min-height: 98px;
+    min-height: 80px;
+
+    gap: 5px;
+
+    padding:
+      7px 6px;
+
+    border-radius:
+      19px 24px
+      18px 22px;
+  }
+
+  .personalize__product:nth-child(2),
+  .personalize__product:nth-child(5) {
+    border-radius:
+      24px 18px
+      23px 19px;
+  }
+
+  .personalize__product-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius:
+      14px 18px
+      13px 17px;
+
+    font-size: 22px;
+  }
+
+  .personalize__product strong {
+    font-size: 8.5px;
+  }
+
+  .personalize__product-check {
+    top: 5px;
+    right: 5px;
+
+    width: 18px;
+    height: 18px;
+
+    border-width: 2px;
+
+    font-size: 7px;
+  }
+
+  .personalize__more {
+    gap: 7px;
+
+    margin-top: 7px;
+
+    padding:
+      7px 9px;
+
+    border-radius:
+      15px 20px
+      14px 18px;
+
+    font-size: 8px;
+  }
+
+  .personalize__more-plus {
+    width: 21px;
+    height: 21px;
+
+    font-size: 12px;
+  }
+
+  .personalize__more b {
+    font-size: 9px;
   }
 
   .personalize__extras {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 5px;
+
+    max-height: 190px;
+
+    margin-top: 7px;
+
+    padding: 6px;
+  }
+
+  .personalize__extra {
+    grid-template-columns:
+      29px
+      minmax(0, 1fr)
+      auto;
+
+    gap: 6px;
+
+    min-height: 44px;
+
+    padding:
+      5px 6px;
+
+    border-radius:
+      13px 17px
+      12px 16px;
+  }
+
+  .personalize__extra > span {
+    width: 29px;
+    height: 29px;
+
+    font-size: 15px;
+  }
+
+  .personalize__extra strong {
+    font-size: 7px;
+  }
+
+  .personalize__extra small {
+    font-size: 5.5px;
+  }
+
+  .personalize__extra > b {
+    width: 16px;
+    height: 16px;
+  }
+
+  .personalize__rules {
+    gap: 4px;
+
+    margin-top: 7px;
+  }
+
+  .personalize__rules span {
+    gap: 4px;
+
+    padding:
+      4px 6px;
+
+    font-size: 6.3px;
+  }
+
+  .personalize__rules i {
+    width: 13px;
+    height: 13px;
+
+    font-size: 5px;
+  }
+
+  .personalize__prompt {
+    border-radius:
+      18px 23px
+      17px 21px;
   }
 
   .personalize__prompt textarea {
-    min-height: 120px;
+    min-height: 88px;
 
-    font-size: 14px;
+    padding:
+      12px 13px 5px;
+
+    font-size: 12px;
+
+    line-height: 1.45;
   }
 
   .personalize__prompt-footer {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
 
-    gap: 4px;
+    gap: 7px;
+
+    padding:
+      5px 11px 9px;
+
+    font-size: 7px;
+  }
+
+  .personalize__generate {
+    gap: 9px;
+
+    margin-top: 8px;
+
+    padding:
+      8px 10px;
+
+    border-width: 2px;
+
+    border-radius:
+      18px 23px
+      17px 21px;
+  }
+
+  .personalize__generate-icon {
+    width: 36px;
+    height: 36px;
+
+    flex: 0 0 36px;
+
+    border-radius:
+      12px 16px
+      11px 15px;
+
+    font-size: 16px;
+  }
+
+  .personalize__generate small {
+    font-size: 6px;
+  }
+
+  .personalize__generate strong {
+    font-size: 11px;
+  }
+
+  .personalize__generate > b {
+    width: 25px;
+    height: 25px;
+
+    font-size: 12px;
   }
 
   .personalize__result-header {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 9px;
+
+    margin-bottom: 11px;
+  }
+
+  .personalize__result-title {
+    gap: 8px;
+  }
+
+  .personalize__result-icon {
+    width: 40px;
+    height: 40px;
+
+    border-width: 3px;
+
+    border-radius:
+      14px 18px
+      13px 17px;
+
+    font-size: 15px;
+  }
+
+  .personalize__result-header small {
+    font-size: 6.5px;
+  }
+
+  .personalize__result-header h3 {
+    font-size: 20px;
+  }
+
+  .personalize__creative-label {
+    display: none;
   }
 
   .personalize__preview {
-    min-height: 350px;
+    min-height: 285px;
 
-    padding: 13px;
+    padding: 11px;
+
+    border-radius:
+      25px 31px
+      23px 29px;
+  }
+
+  .personalize__empty-emoji {
+    width: 70px;
+    height: 70px;
+
+    margin-bottom: 11px;
+
+    border-radius:
+      24px 30px
+      22px 28px;
+
+    font-size: 34px;
+  }
+
+  .personalize__empty strong,
+  .personalize__loading strong {
+    font-size: 16px;
+  }
+
+  .personalize__empty p,
+  .personalize__loading p {
+    margin-top: 5px;
+
+    font-size: 8px;
+  }
+
+  .personalize__loading-orbit {
+    width: 82px;
+    height: 82px;
+
+    margin-bottom: 12px;
+  }
+
+  .personalize__loading-orbit span {
+    width: 46px;
+    height: 46px;
+
+    font-size: 19px;
+  }
+
+  .personalize__generated {
+    padding: 7px;
+
+    border-radius:
+      24px 30px
+      22px 28px;
+  }
+
+  .personalize__generated-image {
+    border-radius:
+      18px 23px
+      17px 21px;
+  }
+
+  .personalize__idea-summary {
+    grid-template-columns:
+      32px
+      minmax(0, 1fr);
+
+    gap: 8px;
+
+    margin-top: 8px;
+
+    padding:
+      8px 9px;
+  }
+
+  .personalize__idea-summary > span {
+    width: 32px;
+    height: 32px;
+
+    font-size: 12px;
+  }
+
+  .personalize__idea-summary p {
+    font-size: 7px;
   }
 
   .personalize__actions {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      0.85fr
+      1.15fr;
+
+    gap: 7px;
+
+    margin-top: 8px;
+  }
+
+  .personalize__again,
+  .personalize__whatsapp {
+    min-height: 50px;
+
+    gap: 7px;
+
+    padding:
+      7px 8px;
+  }
+
+  .personalize__again {
+    font-size: 8px;
+  }
+
+  .personalize__whatsapp-icon {
+    width: 32px;
+    height: 32px;
+
+    flex: 0 0 32px;
+  }
+
+  .personalize__whatsapp-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .personalize__whatsapp strong {
+    font-size: 8.5px;
+  }
+
+  .personalize__notice {
+    gap: 6px;
+
+    margin-top: 7px;
+
+    padding:
+      7px 8px;
+  }
+
+  .personalize__notice p {
+    font-size: 6.3px;
   }
 
   .personalize__doodle--three {
@@ -3210,7 +3666,7 @@
   }
 
   .personalize__scene {
-    opacity: 0.5;
+    opacity: 0.45;
   }
 
   .personalize__kawaii,
@@ -3220,26 +3676,93 @@
   }
 }
 
-@media (max-width: 390px) {
-  .personalize__hero h2 {
-    font-size: 36px;
+/* =====================================================
+   IPHONE
+===================================================== */
+
+@media (max-width: 430px) {
+  .personalize {
+    padding:
+      36px 0
+      48px;
   }
 
-  .personalize__builder,
-  .personalize__result {
-    padding:
-      16px 12px;
+  .personalize__hero h2 {
+    max-width: 310px;
+
+    font-size: 33px;
+  }
+
+  .personalize__hero p {
+    max-width: 305px;
+
+    font-size: 10px;
+  }
+
+  .personalize__product {
+    min-height: 76px;
   }
 
   .personalize__product-icon {
-    width: 49px;
-    height: 49px;
+    width: 39px;
+    height: 39px;
 
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .personalize__preview {
-    min-height: 320px;
+    min-height: 270px;
+  }
+
+  .personalize__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .personalize__again,
+  .personalize__whatsapp {
+    min-height: 47px;
+  }
+}
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+  .personalize__container {
+    width:
+      calc(100% - 12px);
+  }
+
+  .personalize__hero h2 {
+    max-width: 285px;
+
+    font-size: 30px;
+  }
+
+  .personalize__hero p {
+    max-width: 280px;
+
+    font-size: 9.5px;
+  }
+
+  .personalize__product {
+    min-height: 72px;
+  }
+
+  .personalize__product-icon {
+    width: 37px;
+    height: 37px;
+
+    font-size: 19px;
+  }
+
+  .personalize__extras {
+    grid-template-columns: 1fr;
+  }
+
+  .personalize__preview {
+    min-height: 250px;
   }
 }
 
