@@ -5,6 +5,7 @@ import Personalize from './components/Personalize/Personalize'
 import HowToBuy from './components/HowToBuy/HowToBuy'
 import Delivery from './components/Delivery/Delivery'
 import Contact from './components/Contact/Contact'
+import Cart from './components/Cart/Cart'
 import './App.css'
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
         <Delivery />
         <Contact />
       </main>
+
+      <Cart />
     </>
   )
 }

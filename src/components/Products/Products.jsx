@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import './Products.css'
 
 import products from '../../data/products'
 import departments from '../../data/categories'
 import ProductCard from '../ProductCard/ProductCard'
+import ProductModal from '../ProductModal/ProductModal'
 
 /* =====================================================
    NORMALIZAR TEXTO PARA BÚSQUEDA
@@ -26,7 +27,10 @@ function Products() {
   const [activeDepartment, setActiveDepartment] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedProduct, setSelectedProduct] = useState(null)
-  const [selectedImage, setSelectedImage] = useState(0)
+
+  const closeProduct = useCallback(() => {
+    setSelectedProduct(null)
+  }, [])
 
   /* =====================================================
      DEPARTMENTS
@@ -123,36 +127,6 @@ function Products() {
   }, [currentDepartment, normalizedSearch])
 
   /* =====================================================
-     MODAL
-  ===================================================== */
-
-  useEffect(() => {
-    setSelectedImage(0)
-  }, [selectedProduct])
-
-  useEffect(() => {
-    if (!selectedProduct) {
-      return undefined
-    }
-
-    const handleEscape = (event) => {
-      if (event.key === 'Escape') {
-        setSelectedProduct(null)
-      }
-    }
-
-    document.body.style.overflow = 'hidden'
-
-    window.addEventListener('keydown', handleEscape)
-
-    return () => {
-      document.body.style.overflow = ''
-
-      window.removeEventListener('keydown', handleEscape)
-    }
-  }, [selectedProduct])
-
-  /* =====================================================
      NAVIGATION
   ===================================================== */
 
@@ -175,22 +149,6 @@ function Products() {
     setActiveDepartment(null)
     setSearchTerm('')
     scrollToProducts()
-  }
-
-  /* =====================================================
-     PRICE
-  ===================================================== */
-
-  const getPrice = (product) => {
-    if (product.priceLabel) {
-      return product.priceLabel
-    }
-
-    if (typeof product.price === 'number') {
-      return `$${product.price.toLocaleString('es-MX')}`
-    }
-
-    return 'Consultar'
   }
 
   /* =====================================================
@@ -852,216 +810,10 @@ function Products() {
         )}
       </div>
 
-      {/* =====================================================
-          PRODUCT MODAL
-      ===================================================== */}
-
-      {selectedProduct && (
-        <div
-          className="product-modal"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) {
-              setSelectedProduct(null)
-            }
-          }}
-        >
-          <div className="product-modal__panel">
-            <button
-              type="button"
-              className="product-modal__close"
-              onClick={() =>
-                setSelectedProduct(null)
-              }
-              aria-label="Cerrar"
-            >
-              ×
-            </button>
-
-            {/* ======================
-                MODAL MEDIA
-            ====================== */}
-
-            <div className="product-modal__media">
-              <div className="product-modal__main">
-                {selectedProduct.images?.[
-                  selectedImage
-                ] ? (
-                  <img
-                    src={
-                      selectedProduct.images[
-                        selectedImage
-                      ]
-                    }
-                    alt={selectedProduct.name}
-                  />
-                ) : (
-                  <span>
-                    ✦
-                  </span>
-                )}
-              </div>
-
-              {selectedProduct.images?.length > 1 && (
-                <div className="product-modal__thumbs">
-                  {selectedProduct.images.map(
-                    (image, index) => (
-                      <button
-                        key={`${image}-${index}`}
-                        type="button"
-                        className={
-                          selectedImage === index
-                            ? 'is-active'
-                            : ''
-                        }
-                        onClick={() =>
-                          setSelectedImage(index)
-                        }
-                      >
-                        <img
-                          src={image}
-                          alt=""
-                        />
-                      </button>
-                    )
-                  )}
-                </div>
-              )}
-            </div>
-
-            {/* ======================
-                MODAL CONTENT
-            ====================== */}
-
-            <div className="product-modal__content">
-              <span className="product-modal__brand">
-                SD CREATIONS
-              </span>
-
-              <h3>
-                {selectedProduct.name}
-              </h3>
-
-              <div className="product-modal__price">
-                <small>
-                  {selectedProduct.quoteOnly
-                    ? 'Consulta'
-                    : 'Precio'}
-                </small>
-
-                <strong>
-                  {getPrice(selectedProduct)}
-                </strong>
-              </div>
-
-              <p>
-                {selectedProduct.description}
-              </p>
-
-              {/* ======================
-                  VARIANTS
-              ====================== */}
-
-              {selectedProduct.variants?.length > 0 && (
-                <div className="product-modal__variants">
-                  <span>
-                    Opciones disponibles
-                  </span>
-
-                  {selectedProduct.variants.map(
-                    (variant) => (
-                      <div key={variant.id}>
-                        <p>
-                          {variant.name}
-                        </p>
-
-                        <strong>
-                          $
-                          {variant.price.toLocaleString(
-                            'es-MX'
-                          )}
-                        </strong>
-                      </div>
-                    )
-                  )}
-                </div>
-              )}
-
-              {/* ======================
-                  NOTES
-              ====================== */}
-
-              {selectedProduct.notes && (
-                <div className="product-modal__note">
-                  <span>
-                    ✦
-                  </span>
-
-                  <p>
-                    {selectedProduct.notes}
-                  </p>
-                </div>
-              )}
-
-              {/* ======================
-                  SOLD OUT
-              ====================== */}
-
-              {selectedProduct.soldOut && (
-                <div className="product-modal__sold">
-                  <strong>
-                    Temporalmente agotado
-                  </strong>
-
-                  <p>
-                    Pregunta por WhatsApp cuándo estará
-                    nuevamente disponible.
-                  </p>
-                </div>
-              )}
-
-              {/* ======================
-                  WHATSAPP
-              ====================== */}
-
-              <a
-                className="product-modal__whatsapp"
-                href={`https://wa.me/524641060964?text=${encodeURIComponent(
-                  `¡Hola! 💕 Me interesa "${selectedProduct.name}" de SD Creations. Quiero más información.`
-                )}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z" />
-
-                    <path d="M9 8.7c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.8 1.8c.1.3 0 .5-.2.7l-.6.7c.8 1.5 2 2.5 3.6 3.2l.7-.9c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.4.4.6-.1 1.4-1 2.1-2.3 2.1-3.7-.1-7.9-3.8-8.1-7.3 0-.6.1-1.1.4-1.5Z" />
-                  </svg>
-                </span>
-
-                <div>
-                  <small>
-                    Pídelo directamente
-                  </small>
-
-                  <strong>
-                    {selectedProduct.quoteOnly
-                      ? 'Quiero cotizar'
-                      : 'Quiero este producto'}
-                  </strong>
-                </div>
-
-                <b>
-                  ✦
-                </b>
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
+      <ProductModal
+        product={selectedProduct}
+        onClose={closeProduct}
+      />
     </section>
   )
 }

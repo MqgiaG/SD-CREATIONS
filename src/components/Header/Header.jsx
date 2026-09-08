@@ -1,20 +1,91 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import useCart from '../../hooks/useCart'
 import './Header.css'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [headerVisible, setHeaderVisible] = useState(true)
+
+  const {
+    cartCount,
+    openCart,
+  } = useCart()
 
   const closeMenu = () => {
     setMenuOpen(false)
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const homeSection =
+        document.getElementById('inicio')
+
+      if (!homeSection) {
+        setHeaderVisible(true)
+        return
+      }
+
+      const homeBottom =
+        homeSection.offsetTop +
+        homeSection.offsetHeight
+
+      /*
+        La barra permanece visible mientras
+        seguimos dentro de la sección Inicio.
+      */
+      const isInsideHome =
+        window.scrollY <
+        homeBottom - 120
+
+      setHeaderVisible(isInsideHome)
+
+      if (!isInsideHome) {
+        setMenuOpen(false)
+      }
+    }
+
+    handleScroll()
+
+    window.addEventListener(
+      'scroll',
+      handleScroll,
+      {
+        passive: true,
+      }
+    )
+
+    window.addEventListener(
+      'resize',
+      handleScroll
+    )
+
+    return () => {
+      window.removeEventListener(
+        'scroll',
+        handleScroll
+      )
+
+      window.removeEventListener(
+        'resize',
+        handleScroll
+      )
+    }
+  }, [])
+
   return (
-    <header className="header">
+    <header
+      className={`header ${
+        headerVisible
+          ? 'header--visible'
+          : 'header--hidden'
+      }`}
+    >
       <div className="header__container">
 
         {/* =========================
             LOGO
         ========================== */}
+
         <a
           href="#inicio"
           className="header__brand"
@@ -35,27 +106,35 @@ function Header() {
               <span className="header__creation-letter header__creation-letter--1">
                 C
               </span>
+
               <span className="header__creation-letter header__creation-letter--2">
                 R
               </span>
+
               <span className="header__creation-letter header__creation-letter--3">
                 E
               </span>
+
               <span className="header__creation-letter header__creation-letter--4">
                 A
               </span>
+
               <span className="header__creation-letter header__creation-letter--5">
                 T
               </span>
+
               <span className="header__creation-letter header__creation-letter--6">
                 I
               </span>
+
               <span className="header__creation-letter header__creation-letter--7">
                 O
               </span>
+
               <span className="header__creation-letter header__creation-letter--8">
                 N
               </span>
+
               <span className="header__creation-letter header__creation-letter--9">
                 S
               </span>
@@ -78,11 +157,16 @@ function Header() {
         {/* =========================
             NAVEGACIÓN
         ========================== */}
+
         <nav
           className={`header__nav ${
-            menuOpen ? 'header__nav--open' : ''
+            menuOpen
+              ? 'header__nav--open'
+              : ''
           }`}
         >
+          {/* INICIO */}
+
           <a
             href="#inicio"
             className="header__nav-link header__nav-link--pink"
@@ -102,6 +186,8 @@ function Header() {
             <span>Inicio</span>
           </a>
 
+          {/* TIENDA */}
+
           <a
             href="#productos"
             className="header__nav-link header__nav-link--blue"
@@ -115,13 +201,17 @@ function Header() {
                 <path d="M4 8h16v12H4z" />
                 <path d="M3 8h18" />
                 <path d="M12 8v12" />
+
                 <path d="M12 8c-3 0-5-1.2-5-3 0-1.2.9-2 2.1-2C11 3 12 5.5 12 8Z" />
+
                 <path d="M12 8c3 0 5-1.2 5-3 0-1.2-.9-2-2.1-2C13 3 12 5.5 12 8Z" />
               </svg>
             </span>
 
             <span>Tienda</span>
           </a>
+
+          {/* PERSONALIZA */}
 
           <a
             href="#personalizados"
@@ -134,7 +224,9 @@ function Header() {
                 aria-hidden="true"
               >
                 <path d="M14 4 20 10" />
+
                 <path d="m13 5-8.5 8.5a3.5 3.5 0 0 0 0 5 3.5 3.5 0 0 0 5 0L18 10" />
+
                 <path d="M4 20c2.5 0 4-.5 5.5-2" />
               </svg>
             </span>
@@ -142,23 +234,7 @@ function Header() {
             <span>Personaliza</span>
           </a>
 
-          <a
-            href="#galeria"
-            className="header__nav-link header__nav-link--cyan"
-            onClick={closeMenu}
-          >
-            <span className="header__nav-icon">
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="m12 3 1.6 4.7L18 9.5l-4.4 1.8L12 16l-1.6-4.7L6 9.5l4.4-1.8Z" />
-                <path d="m18.5 15 .8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z" />
-              </svg>
-            </span>
-
-            <span>Creaciones</span>
-          </a>
+          {/* CONTACTO */}
 
           <a
             href="#contacto"
@@ -177,6 +253,7 @@ function Header() {
                   height="14"
                   rx="3"
                 />
+
                 <path d="m4 7 8 6 8-6" />
               </svg>
             </span>
@@ -188,7 +265,11 @@ function Header() {
         {/* =========================
             ACCIONES
         ========================== */}
+
         <div className="header__actions">
+
+          {/* WHATSAPP */}
+
           <a
             href="https://wa.me/524641060964"
             target="_blank"
@@ -203,12 +284,16 @@ function Header() {
                 aria-hidden="true"
               >
                 <path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z" />
+
                 <path d="M9 8.7c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.8 1.8c.1.3 0 .5-.2.7l-.6.7c.8 1.5 2 2.5 3.6 3.2l.7-.9c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.4.4.6-.1 1.4-1 2.1-2.3 2.1-3.7-.1-7.9-3.8-8.1-7.3 0-.6.1-1.1.4-1.5Z" />
               </svg>
             </span>
 
             <span className="header__whatsapp-copy">
-              <small>¿Quieres algo especial?</small>
+              <small>
+                ¿Quieres algo especial?
+              </small>
+
               <strong>
                 Pídelo por WhatsApp
                 <span>→</span>
@@ -216,10 +301,13 @@ function Header() {
             </span>
           </a>
 
+          {/* CARRITO */}
+
           <button
             type="button"
             className="header__cart"
-            aria-label="Abrir carrito"
+            aria-label={`Abrir carrito con ${cartCount} productos`}
+            onClick={openCart}
           >
             <span className="header__cart-shine" />
 
@@ -233,17 +321,29 @@ function Header() {
             </svg>
 
             <span className="header__cart-count">
-              0
+              {cartCount}
             </span>
           </button>
+
+          {/* MENÚ MOBILE */}
 
           <button
             type="button"
             className={`header__menu ${
-              menuOpen ? 'header__menu--open' : ''
+              menuOpen
+                ? 'header__menu--open'
+                : ''
             }`}
-            aria-label="Abrir menú"
-            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={
+              menuOpen
+                ? 'Cerrar menú'
+                : 'Abrir menú'
+            }
+            onClick={() =>
+              setMenuOpen(
+                (current) => !current
+              )
+            }
           >
             <span />
             <span />
