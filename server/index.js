@@ -8,20 +8,64 @@ const app = express()
 
 const PORT = process.env.PORT || 3001
 
-const CLIENT_ORIGIN =
-  process.env.CLIENT_ORIGIN || 'http://localhost:5173'
+/* =====================================================
+   CORS
+===================================================== */
+
+const ALLOWED_ORIGINS = [
+  'http://localhost:5173',
+  'https://sdcreations.mqgiadev.com',
+  'http://sdcreations.mqgiadev.com',
+]
+
+if (process.env.CLIENT_ORIGIN) {
+  ALLOWED_ORIGINS.push(process.env.CLIENT_ORIGIN)
+}
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      /*
+       * Las peticiones sin Origin también se permiten.
+       * Ejemplo: curl, health checks o peticiones internas.
+       */
+      if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+        return callback(null, true)
+      }
+
+      console.warn(
+        `⚠️ Origen bloqueado por CORS: ${origin}`
+      )
+
+      return callback(
+        new Error(
+          `Origen no permitido por CORS: ${origin}`
+        )
+      )
+    },
+
+    methods: [
+      'GET',
+      'POST',
+      'OPTIONS',
+    ],
+
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+    ],
+  })
+)
+
+/* =====================================================
+   CONFIG
+===================================================== */
 
 const POLLINATIONS_API_KEY =
   process.env.POLLINATIONS_API_KEY
 
 const IMAGE_MODEL =
   process.env.POLLINATIONS_IMAGE_MODEL || 'zimage'
-
-app.use(
-  cors({
-    origin: CLIENT_ORIGIN,
-  })
-)
 
 app.use(
   express.json({
@@ -33,7 +77,10 @@ app.use(
    REGLAS DEL PRODUCTO
 ===================================================== */
 
-const getPhysicalProductRules = (productId, productName) => {
+const getPhysicalProductRules = (
+  productId,
+  productName
+) => {
   const rules = {
     taza: `
 The product MUST be a classic white ceramic mug.
@@ -201,62 +248,66 @@ app.get('/api/health', (req, res) => {
    GENERAR DISEÑO
 ===================================================== */
 
-app.post('/api/generate-design', async (req, res) => {
-  try {
-    const {
-      productId,
-      productName,
-      idea,
-      generationGuide,
-      details = [],
-    } = req.body
-
-    if (!idea?.trim()) {
-      return res.status(400).json({
-        error:
-          'Describe tu idea antes de generar el diseño.',
-      })
-    }
-
-    if (!productName?.trim()) {
-      return res.status(400).json({
-        error:
-          'No se recibió el producto seleccionado.',
-      })
-    }
-
-    if (!POLLINATIONS_API_KEY) {
-      return res.status(500).json({
-        error:
-          'Falta configurar POLLINATIONS_API_KEY.',
-      })
-    }
-
-    const exactTexts =
-      extractExactText(idea)
-
-    const cleanedIdea =
-      cleanCustomerIdea(idea)
-
-    const productDetails =
-      Array.isArray(details)
-        ? details.join(', ')
-        : ''
-
-    const physicalRules =
-      getPhysicalProductRules(
+app.post(
+  '/api/generate-design',
+  async (req, res) => {
+    try {
+      const {
         productId,
-        productName
-      )
+        productName,
+        idea,
+        generationGuide,
+        details = [],
+      } = req.body
 
-    const textRules =
-      exactTexts.length > 0
-        ? `
+      if (!idea?.trim()) {
+        return res.status(400).json({
+          error:
+            'Describe tu idea antes de generar el diseño.',
+        })
+      }
+
+      if (!productName?.trim()) {
+        return res.status(400).json({
+          error:
+            'No se recibió el producto seleccionado.',
+        })
+      }
+
+      if (!POLLINATIONS_API_KEY) {
+        return res.status(500).json({
+          error:
+            'Falta configurar POLLINATIONS_API_KEY.',
+        })
+      }
+
+      const exactTexts =
+        extractExactText(idea)
+
+      const cleanedIdea =
+        cleanCustomerIdea(idea)
+
+      const productDetails =
+        Array.isArray(details)
+          ? details.join(', ')
+          : ''
+
+      const physicalRules =
+        getPhysicalProductRules(
+          productId,
+          productName
+        )
+
+      const textRules =
+        exactTexts.length > 0
+          ? `
 TEXT RULES — EXTREMELY IMPORTANT:
 
 The ONLY text allowed anywhere in the image is:
 
-${exactTexts.map((text) => `"${text}"`).join('\n')}
+${exactTexts
+  .map((text) => `"${text}"`)
+  .join('\n')}
 
 Write those phrases EXACTLY as provided.
 
@@ -271,7 +322,7 @@ Do not add labels.
 
 Any other visible text is forbidden.
 `
-        : `
+          : `
 TEXT RULES — EXTREMELY IMPORTANT:
 
 NO TEXT IS ALLOWED IN THE GENERATED IMAGE.
@@ -290,7 +341,7 @@ Do not generate:
 The image must contain ZERO visible text.
 `
 
-    const prompt = `
+      const prompt = `
 Create one realistic professional ecommerce product mockup.
 
 ================================
@@ -362,113 +413,118 @@ VISUAL STYLE
 - no product ID
 `.trim()
 
-    console.log('')
-    console.log('🎨 Nueva generación')
-    console.log(`📦 Producto: ${productName}`)
-    console.log(`💭 Idea: ${idea}`)
-
-    if (exactTexts.length) {
+      console.log('')
+      console.log('🎨 Nueva generación')
       console.log(
-        `✍️ Texto permitido: ${exactTexts.join(' | ')}`
+        `📦 Producto: ${productName}`
       )
-    } else {
-      console.log(
-        '🚫 Texto permitido: ninguno'
-      )
-    }
+      console.log(`💭 Idea: ${idea}`)
 
-    const imageUrl = new URL(
-      `https://gen.pollinations.ai/image/${encodeURIComponent(
-        prompt
-      )}`
-    )
-
-    imageUrl.searchParams.set(
-      'model',
-      IMAGE_MODEL
-    )
-
-    imageUrl.searchParams.set(
-      'width',
-      '1024'
-    )
-
-    imageUrl.searchParams.set(
-      'height',
-      '1024'
-    )
-
-    imageUrl.searchParams.set(
-      'seed',
-      Math.floor(
-        Math.random() * 1000000
-      ).toString()
-    )
-
-    const response = await fetch(
-      imageUrl,
-      {
-        headers: {
-          Authorization:
-            `Bearer ${POLLINATIONS_API_KEY}`,
-        },
+      if (exactTexts.length) {
+        console.log(
+          `✍️ Texto permitido: ${exactTexts.join(
+            ' | '
+          )}`
+        )
+      } else {
+        console.log(
+          '🚫 Texto permitido: ninguno'
+        )
       }
-    )
 
-    if (!response.ok) {
-      const errorText =
-        await response.text()
+      const imageUrl = new URL(
+        `https://gen.pollinations.ai/image/${encodeURIComponent(
+          prompt
+        )}`
+      )
 
+      imageUrl.searchParams.set(
+        'model',
+        IMAGE_MODEL
+      )
+
+      imageUrl.searchParams.set(
+        'width',
+        '1024'
+      )
+
+      imageUrl.searchParams.set(
+        'height',
+        '1024'
+      )
+
+      imageUrl.searchParams.set(
+        'seed',
+        Math.floor(
+          Math.random() * 1000000
+        ).toString()
+      )
+
+      const response = await fetch(
+        imageUrl,
+        {
+          headers: {
+            Authorization:
+              `Bearer ${POLLINATIONS_API_KEY}`,
+          },
+        }
+      )
+
+      if (!response.ok) {
+        const errorText =
+          await response.text()
+
+        console.error(
+          '❌ Error Pollinations:',
+          response.status,
+          errorText
+        )
+
+        return res
+          .status(response.status)
+          .json({
+            error:
+              'No se pudo generar la imagen en este momento.',
+          })
+      }
+
+      const contentType =
+        response.headers.get(
+          'content-type'
+        ) || 'image/jpeg'
+
+      const imageBuffer =
+        Buffer.from(
+          await response.arrayBuffer()
+        )
+
+      const base64 =
+        imageBuffer.toString('base64')
+
+      const generatedImage =
+        `data:${contentType};base64,${base64}`
+
+      console.log(
+        '✅ Imagen generada correctamente'
+      )
+
+      return res.json({
+        success: true,
+        image: generatedImage,
+      })
+    } catch (error) {
       console.error(
-        '❌ Error Pollinations:',
-        response.status,
-        errorText
+        '❌ Error generando diseño:',
+        error
       )
 
-      return res
-        .status(response.status)
-        .json({
-          error:
-            'No se pudo generar la imagen en este momento.',
-        })
+      return res.status(500).json({
+        error:
+          'Ocurrió un error al generar tu diseño.',
+      })
     }
-
-    const contentType =
-      response.headers.get(
-        'content-type'
-      ) || 'image/jpeg'
-
-    const imageBuffer =
-      Buffer.from(
-        await response.arrayBuffer()
-      )
-
-    const base64 =
-      imageBuffer.toString('base64')
-
-    const generatedImage =
-      `data:${contentType};base64,${base64}`
-
-    console.log(
-      '✅ Imagen generada correctamente'
-    )
-
-    return res.json({
-      success: true,
-      image: generatedImage,
-    })
-  } catch (error) {
-    console.error(
-      '❌ Error generando diseño:',
-      error
-    )
-
-    return res.status(500).json({
-      error:
-        'Ocurrió un error al generar tu diseño.',
-    })
   }
-})
+)
 
 /* =====================================================
    SERVER
@@ -477,8 +533,23 @@ VISUAL STYLE
 app.listen(PORT, () => {
   console.log('')
   console.log('✨ SD CREATIONS API')
-  console.log(`🚀 http://localhost:${PORT}`)
-  console.log(`🎨 Modelo: ${IMAGE_MODEL}`)
+  console.log(
+    `🚀 http://localhost:${PORT}`
+  )
+  console.log(
+    `🎨 Modelo: ${IMAGE_MODEL}`
+  )
   console.log('💖 Generador preparado')
+
+  console.log(
+    '🌐 Orígenes permitidos:'
+  )
+
+  ALLOWED_ORIGINS.forEach(
+    (origin) => {
+      console.log(`   • ${origin}`)
+    }
+  )
+
   console.log('')
 })
