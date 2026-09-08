@@ -217,6 +217,12 @@ const extraProducts = [
 
 const allProducts = [...featuredProducts, ...extraProducts]
 
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV
+    ? 'http://localhost:3001'
+    : 'https://api-sdcreations.mqgiadev.com')
+
 function Personalize() {
   const [selectedProduct, setSelectedProduct] = useState('taza')
   const [idea, setIdea] = useState('')
@@ -253,7 +259,7 @@ function Personalize() {
       setLoading(true)
 
       const response = await fetch(
-        'http://localhost:3001/api/generate-design',
+        `${API_URL}/api/generate-design`,
         {
           method: 'POST',
           headers: {
