@@ -1,3 +1,9 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom'
+
 import Header from './components/Header/Header'
 import Hero from './components/Hero/Hero'
 import Products from './components/Products/Products'
@@ -6,9 +12,11 @@ import HowToBuy from './components/HowToBuy/HowToBuy'
 import Delivery from './components/Delivery/Delivery'
 import Contact from './components/Contact/Contact'
 import Cart from './components/Cart/Cart'
+import Admin from './pages/Admin/Admin'
+
 import './App.css'
 
-function App() {
+function Store() {
   return (
     <>
       <Header />
@@ -24,6 +32,24 @@ function App() {
 
       <Cart />
     </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Store />}
+        />
+
+        <Route
+          path="/admin"
+          element={<Admin />}
+        />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

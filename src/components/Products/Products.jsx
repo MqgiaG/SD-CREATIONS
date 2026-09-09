@@ -1,10 +1,16 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import './Products.css'
 
-import products from '../../data/products'
 import departments from '../../data/categories'
 import ProductCard from '../ProductCard/ProductCard'
 import ProductModal from '../ProductModal/ProductModal'
+
+
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV
+    ? 'http://localhost:3001'
+    : 'https://api-sdcreations.mqgiadev.com')
 
 /* =====================================================
    NORMALIZAR TEXTO PARA BÚSQUEDA
@@ -24,6 +30,10 @@ const normalizeText = (text = '') =>
     .trim()
 
 function Products() {
+  const [products, setProducts] = useState([])
+  const [isLoadingProducts, setIsLoadingProducts] = useState(true)
+  const [productsError, setProductsError] = useState('')
+
   const [activeDepartment, setActiveDepartment] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedProduct, setSelectedProduct] = useState(null)
@@ -31,6 +41,49 @@ function Products() {
   const closeProduct = useCallback(() => {
     setSelectedProduct(null)
   }, [])
+
+  /* =====================================================
+     CARGAR PRODUCTOS DESDE MONGODB
+  ===================================================== */
+
+  const loadProducts = useCallback(async () => {
+    setIsLoadingProducts(true)
+    setProductsError('')
+
+    try {
+      const response = await fetch(`${API_URL}/api/products`)
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(
+          data.error || 'No se pudo cargar el catálogo.'
+        )
+      }
+
+      setProducts(
+        Array.isArray(data.products)
+          ? data.products
+          : []
+      )
+    } catch (requestError) {
+      console.error(
+        'Error cargando productos:',
+        requestError
+      )
+
+      setProductsError(
+        requestError.message ||
+          'No se pudo cargar el catálogo.'
+      )
+    } finally {
+      setIsLoadingProducts(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    loadProducts()
+  }, [loadProducts])
 
   /* =====================================================
      DEPARTMENTS
@@ -48,7 +101,7 @@ function Products() {
           products: departmentProducts,
         }
       }),
-    []
+    [products]
   )
 
   const currentDepartment = departmentsWithProducts.find(
@@ -90,7 +143,7 @@ function Products() {
 
       return content.includes(normalizedSearch)
     })
-  }, [normalizedSearch])
+  }, [normalizedSearch, products])
 
   /* ======================
      DEPARTMENT SEARCH
@@ -183,6 +236,47 @@ function Products() {
     }
 
     return preview
+  }
+
+  if (isLoadingProducts) {
+    return (
+      <section className="products" id="productos">
+        <div className="products__container">
+          <div className="products__empty">
+            <span>✦</span>
+
+            <h3>Cargando catálogo...</h3>
+
+            <p>
+              Estamos preparando todos los productos para ti.
+            </p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (productsError) {
+    return (
+      <section className="products" id="productos">
+        <div className="products__container">
+          <div className="products__empty">
+            <span>♡</span>
+
+            <h3>No pudimos cargar el catálogo</h3>
+
+            <p>{productsError}</p>
+
+            <button
+              type="button"
+              onClick={loadProducts}
+            >
+              Intentar de nuevo
+            </button>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (
